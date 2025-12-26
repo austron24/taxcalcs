@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaxCalcs - Free Tax & Finance Calculators</title>
+    <meta name="description" content="Free tax calculators, retirement planning tools, and finance calculators. Calculate taxes, 401k, and investment returns.">
+    <link rel="canonical" href="https://taxcalcs.xyz/">
+    <meta property="og:title" content="TaxCalcs - Free Tax & Finance Calculators">
+    <meta property="og:description" content="Free tax calculators, retirement planning tools, and finance calculators. Calculate taxes, 401k, and investment returns.">
+    <meta property="og:url" content="https://taxcalcs.xyz/">
+    <meta property="og:type" content="website">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+        .header {
+            background: rgba(0,0,0,0.3);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #7c3aed;
+            text-decoration: none;
+        }
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, transparent 100%);
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #7c3aed, #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .search-box {
+            max-width: 500px;
+            margin: 2rem auto;
+            position: relative;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 50px;
+            background: rgba(255,255,255,0.05);
+            color: #fff;
+            outline: none;
+        }
+        .search-box input:focus {
+            border-color: #7c3aed;
+        }
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .tool-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.2s;
+        }
+        .tool-card:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: #7c3aed;
+            transform: translateY(-2px);
+        }
+        .tool-icon {
+            font-size: 1.5rem;
+        }
+        .tool-name {
+            font-weight: 500;
+        }
+        .stats {
+            text-align: center;
+            padding: 2rem;
+            color: #94a3b8;
+        }
+        .ad-banner {
+            text-align: center;
+            padding: 1rem;
+            margin: 1rem auto;
+            max-width: 728px;
+        }
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #64748b;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="/" class="logo">TaxCalcs</a>
+        <span>82 Free Calculators</span>
+    </header>
+
+    <!-- Top Ad -->
+    <div class="ad-banner">
+        <script async="async" data-cfasync="false" src="https://www.highperformanceformat.com/ee368c7cdf94f06bc71fdf57fe4124b8/invoke.js"></script>
+        <div id="container-ee368c7cdf94f06bc71fdf57fe4124b8"></div>
+    </div>
+
+    <section class="hero">
+        <h1>Free Tax & Finance Calculators</h1>
+        <p>Free tax calculators, retirement planning tools, and finance calculators. Calculate taxes, 401k, and investment returns.</p>
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Search 82 calculators..." onkeyup="filterTools()">
+        </div>
+    </section>
+
+    <div class="stats">
+        <strong>82</strong> free calculators • No signup required • 100% free
+    </div>
+
+    <main class="tools-grid" id="tools-grid">
+        
+            <a href="1099-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">1099 Calculator</span>
+            </a>
+            <a href="401k-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">401K Calculator</span>
+            </a>
+            <a href="529-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">529 Calculator</span>
+            </a>
+            <a href="529-plan-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">529 Plan Calculator</span>
+            </a>
+            <a href="annuity-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Annuity Calculator</span>
+            </a>
+            <a href="baby-budget-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Baby Budget Calculator</span>
+            </a>
+            <a href="break-even-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Break Even Calculator</span>
+            </a>
+            <a href="budget-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Budget Calculator</span>
+            </a>
+            <a href="business-valuation-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Business Valuation Calculator</span>
+            </a>
+            <a href="cagr-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Cagr Calculator</span>
+            </a>
+            <a href="capital-gains-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Capital Gains Calculator</span>
+            </a>
+            <a href="capital-gains-tax-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Capital Gains Tax Calculator</span>
+            </a>
+            <a href="child-tax-credit-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Child Tax Credit Calculator</span>
+            </a>
+            <a href="college-savings-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">College Savings Calculator</span>
+            </a>
+            <a href="commission-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Commission Calculator</span>
+            </a>
+            <a href="compound-interest.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Compound Interest</span>
+            </a>
+            <a href="compound-interest-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Compound Interest Calculator</span>
+            </a>
+            <a href="cost-of-living-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Cost Of Living Calculator</span>
+            </a>
+            <a href="credit-card-payoff.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Credit Card Payoff</span>
+            </a>
+            <a href="credit-card-payoff-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Credit Card Payoff Calculator</span>
+            </a>
+            <a href="crypto-tax-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Crypto Tax Calculator</span>
+            </a>
+            <a href="debt-consolidation-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Debt Consolidation Calculator</span>
+            </a>
+            <a href="debt-payoff-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Debt Payoff Calculator</span>
+            </a>
+            <a href="dividend-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Dividend Calculator</span>
+            </a>
+            <a href="earned-income-credit-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Earned Income Credit Calculator</span>
+            </a>
+            <a href="emergency-fund-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Emergency Fund Calculator</span>
+            </a>
+            <a href="employee-cost-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Employee Cost Calculator</span>
+            </a>
+            <a href="estate-tax-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Estate Tax Calculator</span>
+            </a>
+            <a href="ev-savings-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Ev Savings Calculator</span>
+            </a>
+            <a href="fire-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Fire Calculator</span>
+            </a>
+            <a href="freelance-rate-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Freelance Rate Calculator</span>
+            </a>
+            <a href="fsa-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Fsa Calculator</span>
+            </a>
+            <a href="gift-budget-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Gift Budget Calculator</span>
+            </a>
+            <a href="gift-tax-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Gift Tax Calculator</span>
+            </a>
+            <a href="health-savings-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Health Savings Calculator</span>
+            </a>
+            <a href="hourly-paycheck-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Hourly Paycheck Calculator</span>
+            </a>
+            <a href="hourly-rate-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Hourly Rate Calculator</span>
+            </a>
+            <a href="hourly-to-salary-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Hourly To Salary Calculator</span>
+            </a>
+            <a href="hourly-to-salary-converter.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Hourly To Salary Converter</span>
+            </a>
+            <a href="hsa-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Hsa Calculator</span>
+            </a>
+            <a href="income-tax-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Income Tax Calculator</span>
+            </a>
+            <a href="inflation-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Inflation Calculator</span>
+            </a>
+            <a href="inheritance-tax-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Inheritance Tax Calculator</span>
+            </a>
+            <a href="investment-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Investment Calculator</span>
+            </a>
+            <a href="invoice-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Invoice Calculator</span>
+            </a>
+            <a href="invoice-generator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Invoice Generator</span>
+            </a>
+            <a href="ira-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Ira Calculator</span>
+            </a>
+            <a href="margin-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Margin Calculator</span>
+            </a>
+            <a href="markup-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Markup Calculator</span>
+            </a>
+            <a href="net-worth-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Net Worth Calculator</span>
+            </a>
+            <a href="overtime-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Overtime Calculator</span>
+            </a>
+            <a href="paycheck-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Paycheck Calculator</span>
+            </a>
+            <a href="payroll-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Payroll Calculator</span>
+            </a>
+            <a href="payroll-tax-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Payroll Tax Calculator</span>
+            </a>
+            <a href="pension-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Pension Calculator</span>
+            </a>
+            <a href="present-value-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Present Value Calculator</span>
+            </a>
+            <a href="profit-margin-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Profit Margin Calculator</span>
+            </a>
+            <a href="quarterly-tax-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Quarterly Tax Calculator</span>
+            </a>
+            <a href="required-minimum-distribution-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Required Minimum Distribution Calculator</span>
+            </a>
+            <a href="retirement-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Retirement Calculator</span>
+            </a>
+            <a href="rmd-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Rmd Calculator</span>
+            </a>
+            <a href="roi-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Roi Calculator</span>
+            </a>
+            <a href="roth-conversion-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Roth Conversion Calculator</span>
+            </a>
+            <a href="roth-ira-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Roth Ira Calculator</span>
+            </a>
+            <a href="runway-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Runway Calculator</span>
+            </a>
+            <a href="salary-to-hourly-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Salary To Hourly Calculator</span>
+            </a>
+            <a href="sales-tax.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Sales Tax</span>
+            </a>
+            <a href="sales-tax-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Sales Tax Calculator</span>
+            </a>
+            <a href="savings-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Savings Calculator</span>
+            </a>
+            <a href="savings-goal-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Savings Goal Calculator</span>
+            </a>
+            <a href="self-employment-tax-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Self Employment Tax Calculator</span>
+            </a>
+            <a href="simple-interest-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Simple Interest Calculator</span>
+            </a>
+            <a href="social-security-benefit-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Social Security Benefit Calculator</span>
+            </a>
+            <a href="social-security-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Social Security Calculator</span>
+            </a>
+            <a href="startup-cost-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Startup Cost Calculator</span>
+            </a>
+            <a href="stock-profit-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Stock Profit Calculator</span>
+            </a>
+            <a href="take-home-pay-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Take Home Pay Calculator</span>
+            </a>
+            <a href="tax-bracket-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Tax Bracket Calculator</span>
+            </a>
+            <a href="tax-refund-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Tax Refund Calculator</span>
+            </a>
+            <a href="vacation-budget-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Vacation Budget Calculator</span>
+            </a>
+            <a href="w2-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">W2 Calculator</span>
+            </a>
+            <a href="wedding-budget-calculator.html" class="tool-card">
+                <span class="tool-icon">📊</span>
+                <span class="tool-name">Wedding Budget Calculator</span>
+            </a>
+    </main>
+
+    <!-- Bottom Ad -->
+    <div class="ad-banner">
+        <script async="async" data-cfasync="false" src="https://www.highperformanceformat.com/b43e7cf5057864a264961884e1f34530/invoke.js"></script>
+        <div id="container-b43e7cf5057864a264961884e1f34530"></div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 TaxCalcs. All calculators are free to use.</p>
+    </footer>
+
+    <script>
+        function filterTools() {
+            const search = document.getElementById('search').value.toLowerCase();
+            const cards = document.querySelectorAll('.tool-card');
+            cards.forEach(card => {
+                const name = card.querySelector('.tool-name').textContent.toLowerCase();
+                card.style.display = name.includes(search) ? 'flex' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

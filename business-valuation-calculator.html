@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://quge5.com/88/tag.min.js" data-zone="196361" async data-cfasync="false"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Valuation Calculator - Estimate Company Worth | TaxCalcs</title>
+    <meta name="description" content="Free business valuation calculator. Estimate your business value using multiple methods including revenue, earnings, and asset-based calculations.">
+    <meta name="keywords" content="business valuation calculator, company worth, business value, SDE multiple, EBITDA valuation">
+    <link rel="canonical" href="https://taxcalcs.xyz/business-valuation-calculator.html">
+    <style>
+        :root { --primary: #6366f1; --primary-dark: #4f46e5; --secondary: #22d3ee; --accent: #f59e0b; --bg-dark: #0f172a; --bg-card: #1e293b; --bg-input: #334155; --text-primary: #f1f5f9; --text-secondary: #94a3b8; --border: #475569; --success: #10b981; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg-dark); color: var(--text-primary); min-height: 100vh; line-height: 1.6; }
+        .header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 40px 20px; text-align: center; }
+        .header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .main-container { max-width: 1200px; margin: 0 auto; padding: 20px; display: grid; grid-template-columns: 1fr 160px; gap: 20px; }
+        .content-area { display: flex; flex-direction: column; gap: 20px; }
+        .sidebar { display: flex; flex-direction: column; gap: 20px; }
+        .card { background: var(--bg-card); border-radius: 16px; padding: 24px; }
+        .card h2 { color: var(--secondary); margin-bottom: 20px; font-size: 1.3rem; }
+        .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 8px; color: var(--text-secondary); }
+        input, select { width: 100%; padding: 15px; border: 2px solid var(--border); border-radius: 10px; font-size: 1rem; background: var(--bg-input); color: var(--text-primary); }
+        input:focus, select:focus { outline: none; border-color: var(--primary); }
+        .result-hero { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); padding: 40px; border-radius: 16px; text-align: center; margin: 20px 0; }
+        .result-hero-value { font-size: 2.5rem; font-weight: 800; color: white; }
+        .result-hero-label { color: rgba(255,255,255,0.9); font-size: 1.2rem; }
+        .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 20px; }
+        .result-card { background: var(--bg-input); padding: 20px; border-radius: 12px; text-align: center; }
+        .result-value { font-size: 1.3rem; font-weight: 700; color: var(--secondary); }
+        .result-label { color: var(--text-secondary); margin-top: 5px; font-size: 0.85rem; }
+        .method-card { background: var(--bg-input); padding: 20px; border-radius: 12px; margin-bottom: 15px; }
+        .method-card h3 { color: var(--secondary); margin-bottom: 10px; }
+        .method-value { font-size: 1.8rem; font-weight: 700; color: var(--accent); }
+        .info-box { background: var(--bg-input); padding: 15px; border-radius: 10px; margin-top: 15px; border-left: 4px solid var(--accent); }
+        .related-tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 15px; }
+        .related-link { display: block; padding: 12px 16px; background: var(--bg-input); border-radius: 8px; color: var(--text-primary); text-decoration: none; }
+        .related-link:hover { background: var(--primary); }
+        @media (max-width: 968px) { .main-container { grid-template-columns: 1fr; } .sidebar { display: none; } }
+        @media (max-width: 640px) { .form-grid, .results-grid { grid-template-columns: 1fr; } }
+    </style>
+    <script>(function(s){s.dataset.zone='10379224',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+</head>
+<body>
+    </div>
+    </div>
+
+    <header class="header">
+        <h1>🏢 Business Valuation Calculator</h1>
+    </header>
+
+    <div class="main-container">
+        <div class="content-area">
+            <div class="card">
+                <h2>📊 Financial Information</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Annual Revenue ($)</label>
+                        <input type="number" id="revenue" value="500000" step="10000" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Gross Profit ($)</label>
+                        <input type="number" id="grossProfit" value="200000" step="10000" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Net Income ($)</label>
+                        <input type="number" id="netIncome" value="75000" step="5000" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Owner's Salary ($)</label>
+                        <input type="number" id="ownerSalary" value="80000" step="5000" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Total Assets ($)</label>
+                        <input type="number" id="assets" value="150000" step="10000" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Total Liabilities ($)</label>
+                        <input type="number" id="liabilities" value="50000" step="5000" oninput="calculate()">
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🏭 Business Details</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Industry</label>
+                        <select id="industry" onchange="calculate()">
+                            <option value="retail">Retail</option>
+                            <option value="restaurant">Restaurant/Food Service</option>
+                            <option value="professional" selected>Professional Services</option>
+                            <option value="manufacturing">Manufacturing</option>
+                            <option value="tech">Technology/Software</option>
+                            <option value="healthcare">Healthcare</option>
+                            <option value="construction">Construction</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Years in Business</label>
+                        <select id="years" onchange="calculate()">
+                            <option value="1">0-2 years</option>
+                            <option value="2">3-5 years</option>
+                            <option value="3" selected>5-10 years</option>
+                            <option value="4">10+ years</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result-hero">
+                <div class="result-hero-label">Estimated Business Value</div>
+                <div class="result-hero-value" id="valuationRange">$0 - $0</div>
+            </div>
+
+            <div class="card">
+                <h2>📈 Valuation Methods</h2>
+                <div class="method-card">
+                    <h3>SDE Multiple (Seller's Discretionary Earnings)</h3>
+                    <div class="method-value" id="sdeValue">$0</div>
+                    <p style="color: var(--text-secondary); margin-top: 10px;">Net Income + Owner Salary × Industry Multiple</p>
+                </div>
+                <div class="method-card">
+                    <h3>Revenue Multiple</h3>
+                    <div class="method-value" id="revenueValue">$0</div>
+                    <p style="color: var(--text-secondary); margin-top: 10px;">Annual Revenue × Industry Revenue Multiple</p>
+                </div>
+                <div class="method-card">
+                    <h3>Asset-Based Value</h3>
+                    <div class="method-value" id="assetValue">$0</div>
+                    <p style="color: var(--text-secondary); margin-top: 10px;">Total Assets - Total Liabilities</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📋 Industry Multiples Reference</h2>
+                <div class="info-box">
+                    <strong>Typical SDE Multiples by Industry:</strong>
+                    <ul style="margin-top: 10px; margin-left: 20px;">
+                        <li>Retail: 1.5-3x SDE</li>
+                        <li>Restaurant: 1.5-2.5x SDE</li>
+                        <li>Professional Services: 2-4x SDE</li>
+                        <li>Manufacturing: 3-5x SDE</li>
+                        <li>Technology/SaaS: 3-7x SDE (or 3-10x revenue)</li>
+                        <li>Healthcare: 3-6x SDE</li>
+                    </ul>
+                </div>
+            </div>
+
+            </div>
+
+            <div class="card">
+                <h2>🔗 Related Tools</h2>
+                <div class="related-tools">
+                    <a href="profit-margin-calculator.html" class="related-link">📊 Profit Margin</a>
+                    <a href="break-even-calculator.html" class="related-link">📈 Break Even</a>
+                    <a href="roi-calculator.html" class="related-link">💰 ROI Calculator</a>
+                    <a href="employee-cost-calculator.html" class="related-link">👥 Employee Cost</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const industryMultiples = {
+            retail: { sdeLow: 1.5, sdeHigh: 3, revLow: 0.3, revHigh: 0.5 },
+            restaurant: { sdeLow: 1.5, sdeHigh: 2.5, revLow: 0.25, revHigh: 0.5 },
+            professional: { sdeLow: 2, sdeHigh: 4, revLow: 0.5, revHigh: 1 },
+            manufacturing: { sdeLow: 3, sdeHigh: 5, revLow: 0.5, revHigh: 0.8 },
+            tech: { sdeLow: 3, sdeHigh: 7, revLow: 2, revHigh: 5 },
+            healthcare: { sdeLow: 3, sdeHigh: 6, revLow: 0.5, revHigh: 1.5 },
+            construction: { sdeLow: 1.5, sdeHigh: 3, revLow: 0.25, revHigh: 0.5 }
+        };
+
+        const yearsMultiplier = { 1: 0.7, 2: 0.85, 3: 1, 4: 1.15 };
+
+        function calculate() {
+            const revenue = parseFloat(document.getElementById('revenue').value) || 0;
+            const grossProfit = parseFloat(document.getElementById('grossProfit').value) || 0;
+            const netIncome = parseFloat(document.getElementById('netIncome').value) || 0;
+            const ownerSalary = parseFloat(document.getElementById('ownerSalary').value) || 0;
+            const assets = parseFloat(document.getElementById('assets').value) || 0;
+            const liabilities = parseFloat(document.getElementById('liabilities').value) || 0;
+            const industry = document.getElementById('industry').value;
+            const years = document.getElementById('years').value;
+            
+            const multiples = industryMultiples[industry];
+            const yearsMult = yearsMultiplier[years];
+            
+            // SDE = Net Income + Owner's Salary (simplified)
+            const sde = netIncome + ownerSalary;
+            const sdeLow = sde * multiples.sdeLow * yearsMult;
+            const sdeHigh = sde * multiples.sdeHigh * yearsMult;
+            const sdeAvg = (sdeLow + sdeHigh) / 2;
+            
+            // Revenue multiple
+            const revLow = revenue * multiples.revLow * yearsMult;
+            const revHigh = revenue * multiples.revHigh * yearsMult;
+            const revAvg = (revLow + revHigh) / 2;
+            
+            // Asset-based
+            const assetValue = assets - liabilities;
+            
+            // Overall range (weighted average emphasizing SDE)
+            const overallLow = Math.round((sdeLow * 0.6 + revLow * 0.25 + assetValue * 0.15));
+            const overallHigh = Math.round((sdeHigh * 0.6 + revHigh * 0.25 + assetValue * 0.15));
+            
+            document.getElementById('valuationRange').textContent = 
+                '$' + overallLow.toLocaleString() + ' - $' + overallHigh.toLocaleString();
+            document.getElementById('sdeValue').textContent = 
+                '$' + Math.round(sdeLow).toLocaleString() + ' - $' + Math.round(sdeHigh).toLocaleString();
+            document.getElementById('revenueValue').textContent = 
+                '$' + Math.round(revLow).toLocaleString() + ' - $' + Math.round(revHigh).toLocaleString();
+            document.getElementById('assetValue').textContent = '$' + Math.round(assetValue).toLocaleString();
+        }
+        
+        calculate();
+    </script>
+</body>
+</html>

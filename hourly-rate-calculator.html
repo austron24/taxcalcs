@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://quge5.com/88/tag.min.js" data-zone="196361" async data-cfasync="false"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hourly Rate Calculator - Freelance Rate Calculator | TaxCalcs</title>
+    <meta name="description" content="Free hourly rate calculator for freelancers. Calculate your ideal hourly rate based on desired income and expenses.">
+    <meta name="keywords" content="hourly rate calculator, freelance rate, consulting rate, contractor hourly rate, billing rate">
+    <link rel="canonical" href="https://taxcalcs.xyz/hourly-rate-calculator.html">
+    <style>
+        :root { --primary: #6366f1; --primary-dark: #4f46e5; --secondary: #22d3ee; --accent: #f59e0b; --bg-dark: #0f172a; --bg-card: #1e293b; --bg-input: #334155; --text-primary: #f1f5f9; --text-secondary: #94a3b8; --border: #475569; --success: #10b981; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg-dark); color: var(--text-primary); min-height: 100vh; line-height: 1.6; }
+        .header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 40px 20px; text-align: center; }
+        .header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .main-container { max-width: 1200px; margin: 0 auto; padding: 20px; display: grid; grid-template-columns: 1fr 160px; gap: 20px; }
+        .content-area { display: flex; flex-direction: column; gap: 20px; }
+        .sidebar { display: flex; flex-direction: column; gap: 20px; }
+        .card { background: var(--bg-card); border-radius: 16px; padding: 24px; }
+        .card h2 { color: var(--secondary); margin-bottom: 20px; font-size: 1.3rem; }
+        .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; color: var(--text-secondary); }
+        input { width: 100%; padding: 15px; border: 2px solid var(--border); border-radius: 10px; font-size: 1rem; background: var(--bg-input); color: var(--text-primary); }
+        input:focus { outline: none; border-color: var(--primary); }
+        .result-hero { background: linear-gradient(135deg, var(--success), #059669); padding: 35px; border-radius: 16px; text-align: center; margin: 20px 0; }
+        .result-hero-value { font-size: 3.5rem; font-weight: 800; color: white; }
+        .result-hero-label { color: rgba(255,255,255,0.8); }
+        .rates-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 20px; }
+        .rate-card { background: var(--bg-input); padding: 20px; border-radius: 12px; text-align: center; }
+        .rate-value { font-size: 1.4rem; font-weight: 700; color: var(--secondary); }
+        .rate-label { color: var(--text-secondary); margin-top: 5px; font-size: 0.9rem; }
+        .breakdown { margin-top: 20px; }
+        .breakdown-item { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--border); }
+        .tips { margin-top: 20px; padding: 20px; background: var(--bg-input); border-radius: 12px; }
+        .tip { display: flex; gap: 10px; padding: 10px 0; }
+        .tip-icon { font-size: 1.2rem; }
+        .related-tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 15px; }
+        .related-link { display: block; padding: 12px 16px; background: var(--bg-input); border-radius: 8px; color: var(--text-primary); text-decoration: none; }
+        .related-link:hover { background: var(--primary); }
+        @media (max-width: 968px) { .main-container { grid-template-columns: 1fr; } .sidebar { display: none; } }
+        @media (max-width: 640px) { .form-grid { grid-template-columns: 1fr; } .rates-grid { grid-template-columns: 1fr; } }
+    </style>
+    <script>(function(s){s.dataset.zone='10379224',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+</head>
+<body>
+    </div>
+    </div>
+    
+    <header class="header">
+        <h1>💼 Hourly Rate Calculator</h1>
+    </header>
+
+    <div class="main-container">
+        <div class="content-area">
+            <div class="card">
+                <h2>📊 Your Numbers</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Desired Annual Income ($)</label>
+                        <input type="number" id="desiredIncome" value="80000" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Annual Business Expenses ($)</label>
+                        <input type="number" id="expenses" value="10000" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Self-Employment Tax Rate (%)</label>
+                        <input type="number" id="taxRate" value="30" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Weeks Worked Per Year</label>
+                        <input type="number" id="weeksWorked" value="48" max="52" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Billable Hours Per Week</label>
+                        <input type="number" id="billableHours" value="30" max="60" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Profit Margin (%)</label>
+                        <input type="number" id="profitMargin" value="20" oninput="calculate()">
+                    </div>
+                </div>
+                
+                <div class="result-hero">
+                    <div class="result-hero-label">Your Hourly Rate</div>
+                    <div class="result-hero-value" id="hourlyRate">$0</div>
+                </div>
+                
+                <div class="rates-grid">
+                    <div class="rate-card">
+                        <div class="rate-value" id="dailyRate">$0</div>
+                        <div class="rate-label">Daily Rate (8 hrs)</div>
+                    </div>
+                    <div class="rate-card">
+                        <div class="rate-value" id="weeklyRate">$0</div>
+                        <div class="rate-label">Weekly Rate</div>
+                    </div>
+                    <div class="rate-card">
+                        <div class="rate-value" id="projectRate">$0</div>
+                        <div class="rate-label">40-Hour Project</div>
+                    </div>
+                </div>
+                
+                <div class="breakdown">
+                    <h3 style="color: var(--secondary); margin-bottom: 15px;">Calculation Breakdown</h3>
+                    <div class="breakdown-item">
+                        <span>Desired Take-Home</span>
+                        <span id="takeHome">$0</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>+ Taxes (Self-Employment)</span>
+                        <span id="taxAmount">$0</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>+ Business Expenses</span>
+                        <span id="expenseAmount">$0</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>+ Profit Margin</span>
+                        <span id="profitAmount">$0</span>
+                    </div>
+                    <div class="breakdown-item" style="font-weight: 700;">
+                        <span>= Total Needed</span>
+                        <span id="totalNeeded" style="color: var(--success);">$0</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>÷ Billable Hours/Year</span>
+                        <span id="totalHours">0 hrs</span>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+
+            <div class="card">
+                <h2>🔗 Related Tools</h2>
+                <div class="related-tools">
+                    <a href="hourly-to-salary-calculator.html" class="related-link">💰 Hourly to Salary</a>
+                    <a href="salary-calculator.html" class="related-link">💵 Salary Calculator</a>
+                    <a href="paycheck-calculator.html" class="related-link">💸 Paycheck Calculator</a>
+                    <a href="invoice-calculator.html" class="related-link">📄 Invoice Calculator</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            const desiredIncome = parseFloat(document.getElementById('desiredIncome').value) || 0;
+            const expenses = parseFloat(document.getElementById('expenses').value) || 0;
+            const taxRate = parseFloat(document.getElementById('taxRate').value) / 100 || 0;
+            const weeksWorked = parseInt(document.getElementById('weeksWorked').value) || 48;
+            const billableHours = parseInt(document.getElementById('billableHours').value) || 30;
+            const profitMargin = parseFloat(document.getElementById('profitMargin').value) / 100 || 0;
+            
+            // Calculate annual billable hours
+            const totalBillableHours = weeksWorked * billableHours;
+            
+            // Calculate gross needed before taxes
+            const grossBeforeTax = desiredIncome / (1 - taxRate);
+            const taxAmount = grossBeforeTax - desiredIncome;
+            
+            // Add expenses
+            const withExpenses = grossBeforeTax + expenses;
+            
+            // Add profit margin
+            const totalNeeded = withExpenses * (1 + profitMargin);
+            const profitAmount = totalNeeded - withExpenses;
+            
+            // Calculate hourly rate
+            const hourlyRate = totalNeeded / totalBillableHours;
+            const dailyRate = hourlyRate * 8;
+            const weeklyRate = hourlyRate * billableHours;
+            const projectRate = hourlyRate * 40;
+            
+            document.getElementById('hourlyRate').textContent = '$' + hourlyRate.toFixed(0);
+            document.getElementById('dailyRate').textContent = '$' + dailyRate.toFixed(0);
+            document.getElementById('weeklyRate').textContent = '$' + weeklyRate.toFixed(0);
+            document.getElementById('projectRate').textContent = '$' + projectRate.toFixed(0);
+            
+            document.getElementById('takeHome').textContent = '$' + desiredIncome.toLocaleString();
+            document.getElementById('taxAmount').textContent = '$' + taxAmount.toLocaleString(undefined, {maximumFractionDigits: 0});
+            document.getElementById('expenseAmount').textContent = '$' + expenses.toLocaleString();
+            document.getElementById('profitAmount').textContent = '$' + profitAmount.toLocaleString(undefined, {maximumFractionDigits: 0});
+            document.getElementById('totalNeeded').textContent = '$' + totalNeeded.toLocaleString(undefined, {maximumFractionDigits: 0});
+            document.getElementById('totalHours').textContent = totalBillableHours.toLocaleString() + ' hrs';
+        }
+        
+        calculate();
+    </script>
+</body>
+</html>

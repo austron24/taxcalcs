@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://quge5.com/88/tag.min.js" data-zone="196361" async data-cfasync="false"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Break-Even Calculator - Business Break-Even Point | TaxCalcs</title>
+    <meta name="description" content="Free break-even calculator. Calculate your break-even point in units and revenue for your business.">
+    <meta name="keywords" content="break even calculator, breakeven point, business calculator, fixed costs, variable costs">
+    <link rel="canonical" href="https://taxcalcs.xyz/break-even-calculator.html">
+    <style>
+        :root { --primary: #dc2626; --primary-dark: #b91c1c; --secondary: #22d3ee; --accent: #f59e0b; --bg-dark: #0f172a; --bg-card: #1e293b; --bg-input: #334155; --text-primary: #f1f5f9; --text-secondary: #94a3b8; --border: #475569; --success: #10b981; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg-dark); color: var(--text-primary); min-height: 100vh; line-height: 1.6; }
+        .header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 40px 20px; text-align: center; }
+        .header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .main-container { max-width: 1200px; margin: 0 auto; padding: 20px; display: grid; grid-template-columns: 1fr 160px; gap: 20px; }
+        .content-area { display: flex; flex-direction: column; gap: 20px; }
+        .sidebar { display: flex; flex-direction: column; gap: 20px; }
+        .card { background: var(--bg-card); border-radius: 16px; padding: 24px; }
+        .card h2 { color: var(--secondary); margin-bottom: 20px; font-size: 1.3rem; }
+        .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 8px; color: var(--text-secondary); }
+        input { width: 100%; padding: 15px; border: 2px solid var(--border); border-radius: 10px; font-size: 1rem; background: var(--bg-input); color: var(--text-primary); }
+        input:focus { outline: none; border-color: var(--primary); }
+        .result-hero { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); padding: 35px; border-radius: 16px; text-align: center; margin: 20px 0; }
+        .result-hero-value { font-size: 3rem; font-weight: 800; color: white; }
+        .result-hero-label { color: rgba(255,255,255,0.8); }
+        .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 20px; }
+        .result-card { background: var(--bg-input); padding: 20px; border-radius: 12px; text-align: center; }
+        .result-value { font-size: 1.3rem; font-weight: 700; color: var(--secondary); }
+        .result-label { color: var(--text-secondary); margin-top: 5px; font-size: 0.85rem; }
+        .breakdown-row { display: flex; justify-content: space-between; padding: 12px 15px; background: var(--bg-input); border-radius: 8px; margin-bottom: 8px; }
+        .related-tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 15px; }
+        .related-link { display: block; padding: 12px 16px; background: var(--bg-input); border-radius: 8px; color: var(--text-primary); text-decoration: none; }
+        .related-link:hover { background: var(--primary); }
+        @media (max-width: 968px) { .main-container { grid-template-columns: 1fr; } .sidebar { display: none; } }
+        @media (max-width: 640px) { .form-grid, .results-grid { grid-template-columns: 1fr; } }
+    </style>
+    <script>(function(s){s.dataset.zone='10379224',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+</head>
+<body>
+    </div>
+    </div>
+
+    <header class="header">
+        <h1>📊 Break-Even Calculator</h1>
+    </header>
+
+    <div class="main-container">
+        <div class="content-area">
+            <div class="card">
+                <h2>💼 Business Costs</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Fixed Costs ($/month)</label>
+                        <input type="number" id="fixed" value="10000" step="500" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Variable Cost Per Unit ($)</label>
+                        <input type="number" id="variable" value="25" step="1" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Selling Price Per Unit ($)</label>
+                        <input type="number" id="price" value="50" step="1" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Expected Monthly Units</label>
+                        <input type="number" id="expected" value="500" step="50" oninput="calculate()">
+                    </div>
+                </div>
+
+                <div class="result-hero">
+                    <div class="result-hero-label">Break-Even Point</div>
+                    <div class="result-hero-value" id="beUnits">0 units</div>
+                </div>
+
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-value" id="beRevenue">$0</div>
+                        <div class="result-label">Break-Even Revenue</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value" id="margin">$0</div>
+                        <div class="result-label">Contribution Margin</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value" id="expectedProfit">$0</div>
+                        <div class="result-label">Expected Profit</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📈 Profitability Analysis</h2>
+                <div class="breakdown-row"><span>Contribution Margin Ratio</span><span id="marginRatio">0%</span></div>
+                <div class="breakdown-row"><span>Units Above Break-Even</span><span id="aboveBE">0</span></div>
+                <div class="breakdown-row"><span>Safety Margin</span><span id="safetyMargin">0%</span></div>
+                <div class="breakdown-row"><span>Monthly Revenue at Expected</span><span id="expectedRevenue">$0</span></div>
+            </div>
+
+            </div>
+
+            <div class="card">
+                <h2>🔗 Related Tools</h2>
+                <div class="related-tools">
+                    <a href="profit-margin-calculator.html" class="related-link">📈 Profit Margin</a>
+                    <a href="markup-calculator.html" class="related-link">💵 Markup</a>
+                    <a href="roi-calculator.html" class="related-link">📊 ROI</a>
+                    <a href="sales-tax-calculator.html" class="related-link">🧾 Sales Tax</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            const fixed = parseFloat(document.getElementById('fixed').value) || 0;
+            const variable = parseFloat(document.getElementById('variable').value) || 0;
+            const price = parseFloat(document.getElementById('price').value) || 0;
+            const expected = parseInt(document.getElementById('expected').value) || 0;
+
+            const contributionMargin = price - variable;
+            const marginRatio = price > 0 ? (contributionMargin / price * 100) : 0;
+
+            const beUnits = contributionMargin > 0 ? Math.ceil(fixed / contributionMargin) : Infinity;
+            const beRevenue = beUnits * price;
+
+            const expectedRevenue = expected * price;
+            const expectedProfit = (expected * contributionMargin) - fixed;
+            const aboveBE = expected - beUnits;
+            const safetyMargin = expected > 0 ? (aboveBE / expected * 100) : 0;
+
+            document.getElementById('beUnits').textContent = beUnits === Infinity ? 'Never' : Math.round(beUnits).toLocaleString() + ' units';
+            document.getElementById('beRevenue').textContent = beUnits === Infinity ? 'N/A' : '$' + Math.round(beRevenue).toLocaleString();
+            document.getElementById('margin').textContent = '$' + contributionMargin.toFixed(2);
+            document.getElementById('expectedProfit').textContent = '$' + Math.round(expectedProfit).toLocaleString();
+
+            document.getElementById('marginRatio').textContent = marginRatio.toFixed(1) + '%';
+            document.getElementById('aboveBE').textContent = aboveBE.toLocaleString();
+            document.getElementById('safetyMargin').textContent = safetyMargin.toFixed(1) + '%';
+            document.getElementById('expectedRevenue').textContent = '$' + expectedRevenue.toLocaleString();
+        }
+        calculate();
+    </script>
+</body>
+</html>

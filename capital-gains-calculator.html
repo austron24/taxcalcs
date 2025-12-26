@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://quge5.com/88/tag.min.js" data-zone="196361" async data-cfasync="false"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capital Gains Tax Calculator - Investment Taxes | TaxCalcs</title>
+    <meta name="description" content="Free capital gains tax calculator. Calculate short-term and long-term capital gains taxes on your investments.">
+    <meta name="keywords" content="capital gains calculator, investment tax, stock tax, long term gains, short term gains">
+    <link rel="canonical" href="https://taxcalcs.xyz/capital-gains-calculator.html">
+    <style>
+        :root { --primary: #059669; --primary-dark: #047857; --secondary: #22d3ee; --accent: #f59e0b; --bg-dark: #0f172a; --bg-card: #1e293b; --bg-input: #334155; --text-primary: #f1f5f9; --text-secondary: #94a3b8; --border: #475569; --success: #10b981; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg-dark); color: var(--text-primary); min-height: 100vh; line-height: 1.6; }
+        .header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 40px 20px; text-align: center; }
+        .header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .main-container { max-width: 1200px; margin: 0 auto; padding: 20px; display: grid; grid-template-columns: 1fr 160px; gap: 20px; }
+        .content-area { display: flex; flex-direction: column; gap: 20px; }
+        .sidebar { display: flex; flex-direction: column; gap: 20px; }
+        .card { background: var(--bg-card); border-radius: 16px; padding: 24px; }
+        .card h2 { color: var(--secondary); margin-bottom: 20px; font-size: 1.3rem; }
+        .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; color: var(--text-secondary); }
+        input, select { width: 100%; padding: 15px; border: 2px solid var(--border); border-radius: 10px; font-size: 1rem; background: var(--bg-input); color: var(--text-primary); }
+        input:focus, select:focus { outline: none; border-color: var(--primary); }
+        .result-hero { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); padding: 35px; border-radius: 16px; text-align: center; margin: 20px 0; }
+        .result-hero-value { font-size: 3rem; font-weight: 800; color: white; }
+        .result-hero-label { color: rgba(255,255,255,0.8); }
+        .results-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 20px; }
+        .result-card { background: var(--bg-input); padding: 20px; border-radius: 12px; text-align: center; }
+        .result-value { font-size: 1.3rem; font-weight: 700; color: var(--secondary); }
+        .result-label { color: var(--text-secondary); margin-top: 5px; font-size: 0.85rem; }
+        .breakdown-row { display: flex; justify-content: space-between; padding: 12px 15px; background: var(--bg-input); border-radius: 8px; margin-bottom: 8px; }
+        .breakdown-row.profit { color: var(--success); }
+        .breakdown-row.tax { color: #ef4444; }
+        .related-tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 15px; }
+        .related-link { display: block; padding: 12px 16px; background: var(--bg-input); border-radius: 8px; color: var(--text-primary); text-decoration: none; }
+        .related-link:hover { background: var(--primary); }
+        @media (max-width: 968px) { .main-container { grid-template-columns: 1fr; } .sidebar { display: none; } }
+        @media (max-width: 640px) { .form-grid, .results-grid { grid-template-columns: 1fr 1fr; } }
+    </style>
+    <script>(function(s){s.dataset.zone='10379224',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+</head>
+<body>
+    </div>
+    </div>
+    
+    <header class="header">
+        <h1>📈 Capital Gains Calculator</h1>
+    </header>
+
+    <div class="main-container">
+        <div class="content-area">
+            <div class="card">
+                <h2>💹 Investment Details</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Purchase Price ($)</label>
+                        <input type="number" id="purchasePrice" value="10000" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Sale Price ($)</label>
+                        <input type="number" id="salePrice" value="15000" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Holding Period</label>
+                        <select id="holdingPeriod" onchange="calculate()">
+                            <option value="short">Short-Term (≤1 year)</option>
+                            <option value="long" selected>Long-Term (>1 year)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Your Tax Bracket</label>
+                        <select id="taxBracket" onchange="calculate()">
+                            <option value="0">0% ($0-$47,025)</option>
+                            <option value="15" selected>15% ($47,026-$518,900)</option>
+                            <option value="20">20% ($518,901+)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Annual Income ($)</label>
+                        <input type="number" id="annualIncome" value="75000" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Filing Status</label>
+                        <select id="filingStatus" onchange="calculate()">
+                            <option value="single" selected>Single</option>
+                            <option value="married">Married Filing Jointly</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="result-hero">
+                    <div class="result-hero-label">Capital Gains Tax</div>
+                    <div class="result-hero-value" id="taxOwed">$0</div>
+                </div>
+                
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-value" id="capitalGain">$0</div>
+                        <div class="result-label">Capital Gain</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value" id="taxRate">0%</div>
+                        <div class="result-label">Tax Rate</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value" id="netProfit">$0</div>
+                        <div class="result-label">Net Profit</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value" id="returnRate">0%</div>
+                        <div class="result-label">Return Rate</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📊 Breakdown</h2>
+                <div class="breakdown-row">
+                    <span>Purchase Price</span>
+                    <span id="purchaseDisplay">$0</span>
+                </div>
+                <div class="breakdown-row">
+                    <span>Sale Price</span>
+                    <span id="saleDisplay">$0</span>
+                </div>
+                <div class="breakdown-row profit">
+                    <span>Gross Profit</span>
+                    <span id="grossProfit">$0</span>
+                </div>
+                <div class="breakdown-row tax">
+                    <span>Capital Gains Tax</span>
+                    <span id="taxDisplay">-$0</span>
+                </div>
+                <div class="breakdown-row" style="background: var(--success); color: white; font-weight: 700;">
+                    <span>Net Proceeds</span>
+                    <span id="netProceeds">$0</span>
+                </div>
+            </div>
+
+            </div>
+
+            <div class="card">
+                <h2>🔗 Related Tools</h2>
+                <div class="related-tools">
+                    <a href="income-tax-calculator.html" class="related-link">📊 Income Tax</a>
+                    <a href="investment-calculator.html" class="related-link">💰 Investment Calculator</a>
+                    <a href="stock-profit-calculator.html" class="related-link">📈 Stock Profit</a>
+                    <a href="dividend-calculator.html" class="related-link">💵 Dividend Calculator</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            const purchasePrice = parseFloat(document.getElementById('purchasePrice').value) || 0;
+            const salePrice = parseFloat(document.getElementById('salePrice').value) || 0;
+            const holdingPeriod = document.getElementById('holdingPeriod').value;
+            const annualIncome = parseFloat(document.getElementById('annualIncome').value) || 0;
+            const filingStatus = document.getElementById('filingStatus').value;
+            
+            const capitalGain = Math.max(0, salePrice - purchasePrice);
+            
+            let taxRate = 0;
+            if (holdingPeriod === 'short') {
+                if (annualIncome < 11600) taxRate = 0.10;
+                else if (annualIncome < 47150) taxRate = 0.12;
+                else if (annualIncome < 100525) taxRate = 0.22;
+                else if (annualIncome < 191950) taxRate = 0.24;
+                else if (annualIncome < 243725) taxRate = 0.32;
+                else if (annualIncome < 609350) taxRate = 0.35;
+                else taxRate = 0.37;
+            } else {
+                const threshold1 = filingStatus === 'married' ? 94050 : 47025;
+                const threshold2 = filingStatus === 'married' ? 583750 : 518900;
+                
+                if (annualIncome <= threshold1) taxRate = 0;
+                else if (annualIncome <= threshold2) taxRate = 0.15;
+                else taxRate = 0.20;
+            }
+            
+            const taxOwed = capitalGain * taxRate;
+            const netProfit = capitalGain - taxOwed;
+            const netProceeds = salePrice - taxOwed;
+            const returnRate = purchasePrice > 0 ? ((netProfit / purchasePrice) * 100) : 0;
+            
+            document.getElementById('taxOwed').textContent = '$' + Math.round(taxOwed).toLocaleString();
+            document.getElementById('capitalGain').textContent = '$' + Math.round(capitalGain).toLocaleString();
+            document.getElementById('taxRate').textContent = (taxRate * 100).toFixed(0) + '%';
+            document.getElementById('netProfit').textContent = '$' + Math.round(netProfit).toLocaleString();
+            document.getElementById('returnRate').textContent = returnRate.toFixed(1) + '%';
+            
+            document.getElementById('purchaseDisplay').textContent = '$' + purchasePrice.toLocaleString();
+            document.getElementById('saleDisplay').textContent = '$' + salePrice.toLocaleString();
+            document.getElementById('grossProfit').textContent = '$' + capitalGain.toLocaleString();
+            document.getElementById('taxDisplay').textContent = '-$' + Math.round(taxOwed).toLocaleString();
+            document.getElementById('netProceeds').textContent = '$' + Math.round(netProceeds).toLocaleString();
+        }
+        
+        calculate();
+    </script>
+</body>
+</html>

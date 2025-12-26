@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://quge5.com/88/tag.min.js" data-zone="196361" async data-cfasync="false"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estate Tax Calculator - Federal Estate Tax Estimator | TaxCalcs</title>
+    <meta name="description" content="Free estate tax calculator. Estimate federal estate taxes based on estate value and exemptions. Plan your estate effectively.">
+    <meta name="keywords" content="estate tax calculator, inheritance tax, federal estate tax, death tax calculator, estate planning">
+    <link rel="canonical" href="https://taxcalcs.xyz/estate-tax-calculator.html">
+    <style>
+        :root { --primary: #6366f1; --primary-dark: #4f46e5; --secondary: #22d3ee; --accent: #f59e0b; --bg-dark: #0f172a; --bg-card: #1e293b; --bg-input: #334155; --text-primary: #f1f5f9; --text-secondary: #94a3b8; --border: #475569; --success: #10b981; --error: #ef4444; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg-dark); color: var(--text-primary); min-height: 100vh; line-height: 1.6; }
+        .header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 40px 20px; text-align: center; }
+        .header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .main-container { max-width: 1200px; margin: 0 auto; padding: 20px; display: grid; grid-template-columns: 1fr 160px; gap: 20px; }
+        .content-area { display: flex; flex-direction: column; gap: 20px; }
+        .sidebar { display: flex; flex-direction: column; gap: 20px; }
+        .card { background: var(--bg-card); border-radius: 16px; padding: 24px; }
+        .card h2 { color: var(--secondary); margin-bottom: 20px; font-size: 1.3rem; }
+        .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; color: var(--text-secondary); }
+        input, select { width: 100%; padding: 15px; border: 2px solid var(--border); border-radius: 10px; font-size: 1rem; background: var(--bg-input); color: var(--text-primary); }
+        input:focus, select:focus { outline: none; border-color: var(--primary); }
+        .result-hero { background: linear-gradient(135deg, var(--error), #dc2626); padding: 35px; border-radius: 16px; text-align: center; margin: 20px 0; }
+        .result-hero.no-tax { background: linear-gradient(135deg, var(--success), #059669); }
+        .result-hero-value { font-size: 3rem; font-weight: 800; color: white; }
+        .result-hero-label { color: rgba(255,255,255,0.8); }
+        .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 20px; }
+        .result-card { background: var(--bg-input); padding: 20px; border-radius: 12px; text-align: center; }
+        .result-value { font-size: 1.5rem; font-weight: 700; color: var(--secondary); }
+        .result-label { color: var(--text-secondary); margin-top: 5px; font-size: 0.9rem; }
+        .breakdown { margin-top: 20px; }
+        .breakdown-item { display: flex; justify-content: space-between; padding: 15px; background: var(--bg-input); border-radius: 10px; margin-bottom: 10px; }
+        .tax-brackets { margin-top: 20px; padding: 20px; background: var(--bg-input); border-radius: 12px; }
+        .bracket-row { display: grid; grid-template-columns: 1fr 1fr; padding: 10px 0; border-bottom: 1px solid var(--border); }
+        .bracket-row.header { color: var(--secondary); font-weight: 700; }
+        .exemption-note { background: var(--bg-input); padding: 15px; border-radius: 12px; margin-top: 20px; border-left: 4px solid var(--accent); }
+        .related-tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 15px; }
+        .related-link { display: block; padding: 12px 16px; background: var(--bg-input); border-radius: 8px; color: var(--text-primary); text-decoration: none; }
+        .related-link:hover { background: var(--primary); }
+        @media (max-width: 968px) { .main-container { grid-template-columns: 1fr; } .sidebar { display: none; } }
+        @media (max-width: 640px) { .form-grid, .results-grid { grid-template-columns: 1fr; } }
+    </style>
+    <script>(function(s){s.dataset.zone='10379224',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+</head>
+<body>
+    </div>
+    </div>
+    
+    <header class="header">
+        <h1>📜 Estate Tax Calculator</h1>
+    </header>
+
+    <div class="main-container">
+        <div class="content-area">
+            <div class="card">
+                <h2>💰 Estate Details</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Total Estate Value ($)</label>
+                        <input type="number" id="estateValue" value="15000000" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Debts & Liabilities ($)</label>
+                        <input type="number" id="debts" value="500000" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Charitable Bequests ($)</label>
+                        <input type="number" id="charity" value="0" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Marital Status</label>
+                        <select id="maritalStatus" onchange="calculate()">
+                            <option value="single">Single / Widowed</option>
+                            <option value="married">Married (Spouse inherits)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Prior Taxable Gifts ($)</label>
+                        <input type="number" id="priorGifts" value="0" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Tax Year</label>
+                        <select id="taxYear" onchange="calculate()">
+                            <option value="2024" selected>2024</option>
+                            <option value="2025">2025</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="result-hero" id="resultHero">
+                    <div class="result-hero-label">Estimated Estate Tax</div>
+                    <div class="result-hero-value" id="estateTax">$0</div>
+                </div>
+                
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-value" id="taxableEstate">$0</div>
+                        <div class="result-label">Taxable Estate</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value" id="effectiveRate">0%</div>
+                        <div class="result-label">Effective Tax Rate</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value" id="toHeirs">$0</div>
+                        <div class="result-label">Net to Heirs</div>
+                    </div>
+                </div>
+                
+                <div class="breakdown">
+                    <h3 style="color: var(--secondary); margin-bottom: 15px;">Calculation Breakdown</h3>
+                    <div class="breakdown-item">
+                        <span>Gross Estate</span>
+                        <span id="grossEstate">$0</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>− Debts & Expenses</span>
+                        <span id="debtDisplay">$0</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>− Charitable Deductions</span>
+                        <span id="charityDisplay">$0</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>− Marital Deduction</span>
+                        <span id="maritalDisplay">$0</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>= Taxable Estate</span>
+                        <span id="taxableDisplay">$0</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>+ Prior Taxable Gifts</span>
+                        <span id="giftsDisplay">$0</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>= Tax Base</span>
+                        <span id="taxBase">$0</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>− Unified Credit (Exemption)</span>
+                        <span id="exemptionDisplay">$0</span>
+                    </div>
+                </div>
+                
+                <div class="exemption-note">
+                    <strong style="color: var(--accent);">📋 2024 Exemption:</strong> The federal estate tax exemption is <strong>$13.61 million</strong> per individual ($27.22 million for married couples). Only estates exceeding this amount are subject to federal estate tax.
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📊 Federal Estate Tax Rates</h2>
+                <div class="tax-brackets">
+                    <div class="bracket-row header">
+                        <span>Taxable Amount Over Exemption</span>
+                        <span>Tax Rate</span>
+                    </div>
+                    <div class="bracket-row"><span>$0 - $10,000</span><span>18%</span></div>
+                    <div class="bracket-row"><span>$10,000 - $20,000</span><span>20%</span></div>
+                    <div class="bracket-row"><span>$20,000 - $40,000</span><span>22%</span></div>
+                    <div class="bracket-row"><span>$40,000 - $60,000</span><span>24%</span></div>
+                    <div class="bracket-row"><span>$60,000 - $80,000</span><span>26%</span></div>
+                    <div class="bracket-row"><span>$80,000 - $100,000</span><span>28%</span></div>
+                    <div class="bracket-row"><span>$100,000 - $150,000</span><span>30%</span></div>
+                    <div class="bracket-row"><span>$150,000 - $250,000</span><span>32%</span></div>
+                    <div class="bracket-row"><span>$250,000 - $500,000</span><span>34%</span></div>
+                    <div class="bracket-row"><span>$500,000 - $750,000</span><span>37%</span></div>
+                    <div class="bracket-row"><span>$750,000 - $1,000,000</span><span>39%</span></div>
+                    <div class="bracket-row"><span>Over $1,000,000</span><span>40%</span></div>
+                </div>
+            </div>
+
+            </div>
+
+            <div class="card">
+                <h2>🔗 Related Tools</h2>
+                <div class="related-tools">
+                    <a href="inheritance-calculator.html" class="related-link">💰 Inheritance Calculator</a>
+                    <a href="retirement-calculator.html" class="related-link">📊 Retirement Calculator</a>
+                    <a href="life-insurance-calculator.html" class="related-link">🛡️ Life Insurance</a>
+                    <a href="investment-calculator.html" class="related-link">📈 Investment Calculator</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            const estateValue = parseFloat(document.getElementById('estateValue').value) || 0;
+            const debts = parseFloat(document.getElementById('debts').value) || 0;
+            const charity = parseFloat(document.getElementById('charity').value) || 0;
+            const maritalStatus = document.getElementById('maritalStatus').value;
+            const priorGifts = parseFloat(document.getElementById('priorGifts').value) || 0;
+            const taxYear = document.getElementById('taxYear').value;
+            
+            // Exemption amounts
+            const exemptions = {
+                '2024': 13610000,
+                '2025': 13990000
+            };
+            const exemption = exemptions[taxYear];
+            
+            // Calculate taxable estate
+            const grossEstate = estateValue;
+            const maritalDeduction = maritalStatus === 'married' ? grossEstate - debts - charity : 0;
+            const taxableEstate = Math.max(0, grossEstate - debts - charity - maritalDeduction);
+            const taxBase = taxableEstate + priorGifts;
+            
+            // Calculate tentative tax using graduated rates
+            function calculateTentativeTax(amount) {
+                const brackets = [
+                    { limit: 10000, rate: 0.18, base: 0 },
+                    { limit: 20000, rate: 0.20, base: 1800 },
+                    { limit: 40000, rate: 0.22, base: 3800 },
+                    { limit: 60000, rate: 0.24, base: 8200 },
+                    { limit: 80000, rate: 0.26, base: 13000 },
+                    { limit: 100000, rate: 0.28, base: 18200 },
+                    { limit: 150000, rate: 0.30, base: 23800 },
+                    { limit: 250000, rate: 0.32, base: 38800 },
+                    { limit: 500000, rate: 0.34, base: 70800 },
+                    { limit: 750000, rate: 0.37, base: 155800 },
+                    { limit: 1000000, rate: 0.39, base: 248300 },
+                    { limit: Infinity, rate: 0.40, base: 345800 }
+                ];
+                
+                let prevLimit = 0;
+                for (const bracket of brackets) {
+                    if (amount <= bracket.limit) {
+                        return bracket.base + (amount - prevLimit) * bracket.rate;
+                    }
+                    prevLimit = bracket.limit;
+                }
+                return 0;
+            }
+            
+            const tentativeTax = calculateTentativeTax(taxBase);
+            const unifiedCredit = calculateTentativeTax(exemption);
+            const estateTax = Math.max(0, tentativeTax - unifiedCredit);
+            const effectiveRate = taxableEstate > 0 ? (estateTax / taxableEstate * 100) : 0;
+            const toHeirs = estateValue - debts - charity - estateTax;
+            
+            // Update display
+            document.getElementById('estateTax').textContent = '$' + estateTax.toLocaleString(undefined, {maximumFractionDigits: 0});
+            document.getElementById('taxableEstate').textContent = '$' + taxableEstate.toLocaleString(undefined, {maximumFractionDigits: 0});
+            document.getElementById('effectiveRate').textContent = effectiveRate.toFixed(1) + '%';
+            document.getElementById('toHeirs').textContent = '$' + toHeirs.toLocaleString(undefined, {maximumFractionDigits: 0});
+            
+            document.getElementById('grossEstate').textContent = '$' + grossEstate.toLocaleString();
+            document.getElementById('debtDisplay').textContent = '$' + debts.toLocaleString();
+            document.getElementById('charityDisplay').textContent = '$' + charity.toLocaleString();
+            document.getElementById('maritalDisplay').textContent = '$' + maritalDeduction.toLocaleString();
+            document.getElementById('taxableDisplay').textContent = '$' + taxableEstate.toLocaleString();
+            document.getElementById('giftsDisplay').textContent = '$' + priorGifts.toLocaleString();
+            document.getElementById('taxBase').textContent = '$' + taxBase.toLocaleString();
+            document.getElementById('exemptionDisplay').textContent = '$' + exemption.toLocaleString();
+            
+            // Update hero styling
+            const heroEl = document.getElementById('resultHero');
+            if (estateTax === 0) {
+                heroEl.classList.add('no-tax');
+            } else {
+                heroEl.classList.remove('no-tax');
+            }
+        }
+        
+        calculate();
+    </script>
+</body>
+</html>

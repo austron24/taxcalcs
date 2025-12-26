@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://quge5.com/88/tag.min.js" data-zone="196361" async data-cfasync="false"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSA Calculator - Health Savings Account | TaxCalcs</title>
+    <meta name="description" content="Free HSA calculator. Calculate your health savings account growth, tax savings, and retirement healthcare benefits.">
+    <meta name="keywords" content="HSA calculator, health savings account, HSA contribution, healthcare savings, HSA tax benefits">
+    <link rel="canonical" href="https://taxcalcs.xyz/hsa-calculator.html">
+    <style>
+        :root { --primary: #0ea5e9; --primary-dark: #0284c7; --secondary: #22d3ee; --accent: #f59e0b; --bg-dark: #0f172a; --bg-card: #1e293b; --bg-input: #334155; --text-primary: #f1f5f9; --text-secondary: #94a3b8; --border: #475569; --success: #10b981; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg-dark); color: var(--text-primary); min-height: 100vh; line-height: 1.6; }
+        .header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 40px 20px; text-align: center; }
+        .header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .main-container { max-width: 1200px; margin: 0 auto; padding: 20px; display: grid; grid-template-columns: 1fr 160px; gap: 20px; }
+        .content-area { display: flex; flex-direction: column; gap: 20px; }
+        .sidebar { display: flex; flex-direction: column; gap: 20px; }
+        .card { background: var(--bg-card); border-radius: 16px; padding: 24px; }
+        .card h2 { color: var(--secondary); margin-bottom: 20px; font-size: 1.3rem; }
+        .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; color: var(--text-secondary); }
+        input, select { width: 100%; padding: 15px; border: 2px solid var(--border); border-radius: 10px; font-size: 1rem; background: var(--bg-input); color: var(--text-primary); }
+        input:focus, select:focus { outline: none; border-color: var(--primary); }
+        .result-hero { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); padding: 35px; border-radius: 16px; text-align: center; margin: 20px 0; }
+        .result-hero-value { font-size: 3rem; font-weight: 800; color: white; }
+        .result-hero-label { color: rgba(255,255,255,0.8); }
+        .results-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 20px; }
+        .result-card { background: var(--bg-input); padding: 20px; border-radius: 12px; text-align: center; }
+        .result-value { font-size: 1.3rem; font-weight: 700; color: var(--secondary); }
+        .result-label { color: var(--text-secondary); margin-top: 5px; font-size: 0.85rem; }
+        .breakdown-row { display: flex; justify-content: space-between; padding: 12px 15px; background: var(--bg-input); border-radius: 8px; margin-bottom: 8px; }
+        .related-tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 15px; }
+        .related-link { display: block; padding: 12px 16px; background: var(--bg-input); border-radius: 8px; color: var(--text-primary); text-decoration: none; }
+        .related-link:hover { background: var(--primary); }
+        @media (max-width: 968px) { .main-container { grid-template-columns: 1fr; } .sidebar { display: none; } }
+        @media (max-width: 640px) { .form-grid, .results-grid { grid-template-columns: 1fr 1fr; } }
+    </style>
+    <script>(function(s){s.dataset.zone='10379224',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+</head>
+<body>
+    </div>
+    </div>
+
+    <header class="header">
+        <h1>🏥 HSA Calculator</h1>
+    </header>
+
+    <div class="main-container">
+        <div class="content-area">
+            <div class="card">
+                <h2>📊 HSA Information</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Coverage Type</label>
+                        <select id="coverageType" onchange="calculate()">
+                            <option value="self">Self Only</option>
+                            <option value="family" selected>Family</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Current HSA Balance ($)</label>
+                        <input type="number" id="currentBalance" value="5000" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Annual Contribution ($)</label>
+                        <input type="number" id="annualContribution" value="8300" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Employer Contribution ($)</label>
+                        <input type="number" id="employerContribution" value="1000" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Years Until Retirement</label>
+                        <input type="number" id="years" value="25" min="1" max="50" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Expected Return (%)</label>
+                        <input type="number" id="returnRate" value="6" step="0.5" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Federal Tax Rate (%)</label>
+                        <input type="number" id="federalTax" value="22" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>State Tax Rate (%)</label>
+                        <input type="number" id="stateTax" value="5" oninput="calculate()">
+                    </div>
+                </div>
+
+                <div class="result-hero">
+                    <div class="result-hero-label">HSA Balance at Retirement</div>
+                    <div class="result-hero-value" id="futureBalance">$0</div>
+                </div>
+
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-value" id="totalContributions">$0</div>
+                        <div class="result-label">Total Contributions</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value" id="investmentGrowth">$0</div>
+                        <div class="result-label">Investment Growth</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value" id="annualTaxSavings">$0</div>
+                        <div class="result-label">Annual Tax Savings</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value" id="totalTaxSavings">$0</div>
+                        <div class="result-label">Lifetime Tax Savings</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📅 2024 HSA Limits</h2>
+                <div class="breakdown-row"><span>Self-Only Contribution Limit</span><span>$4,150</span></div>
+                <div class="breakdown-row"><span>Family Contribution Limit</span><span>$8,300</span></div>
+                <div class="breakdown-row"><span>Catch-Up (55+)</span><span>+$1,000</span></div>
+                <div class="breakdown-row"><span>Tax Deductible</span><span>100%</span></div>
+                <div class="breakdown-row"><span>Tax-Free Withdrawals</span><span>Qualified Medical Expenses</span></div>
+            </div>
+
+            </div>
+
+            <div class="card">
+                <h2>🔗 Related Tools</h2>
+                <div class="related-tools">
+                    <a href="401k-calculator.html" class="related-link">📈 401(k) Calculator</a>
+                    <a href="roth-ira-calculator.html" class="related-link">💰 Roth IRA</a>
+                    <a href="income-tax-calculator.html" class="related-link">📋 Income Tax</a>
+                    <a href="retirement-calculator.html" class="related-link">🎯 Retirement</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            const coverageType = document.getElementById('coverageType').value;
+            const currentBalance = parseFloat(document.getElementById('currentBalance').value) || 0;
+            const annualContribution = parseFloat(document.getElementById('annualContribution').value) || 0;
+            const employerContribution = parseFloat(document.getElementById('employerContribution').value) || 0;
+            const years = parseInt(document.getElementById('years').value) || 25;
+            const returnRate = parseFloat(document.getElementById('returnRate').value) / 100 || 0.06;
+            const federalTax = parseFloat(document.getElementById('federalTax').value) / 100 || 0.22;
+            const stateTax = parseFloat(document.getElementById('stateTax').value) / 100 || 0.05;
+
+            const totalContributionPerYear = annualContribution + employerContribution;
+            const maxLimit = coverageType === 'self' ? 4150 : 8300;
+            const effectiveContribution = Math.min(totalContributionPerYear, maxLimit + employerContribution);
+
+            let balance = currentBalance;
+            let totalContributions = currentBalance;
+
+            for (let i = 0; i < years; i++) {
+                balance = (balance + effectiveContribution) * (1 + returnRate);
+                totalContributions += effectiveContribution;
+            }
+
+            const investmentGrowth = balance - totalContributions;
+            const combinedTaxRate = federalTax + stateTax + 0.0765; // FICA
+            const annualTaxSavings = annualContribution * combinedTaxRate;
+            const totalTaxSavings = annualTaxSavings * years + investmentGrowth * (federalTax + stateTax);
+
+            document.getElementById('futureBalance').textContent = '$' + Math.round(balance).toLocaleString();
+            document.getElementById('totalContributions').textContent = '$' + Math.round(totalContributions).toLocaleString();
+            document.getElementById('investmentGrowth').textContent = '$' + Math.round(investmentGrowth).toLocaleString();
+            document.getElementById('annualTaxSavings').textContent = '$' + Math.round(annualTaxSavings).toLocaleString();
+            document.getElementById('totalTaxSavings').textContent = '$' + Math.round(totalTaxSavings).toLocaleString();
+        }
+
+        calculate();
+    </script>
+</body>
+</html>

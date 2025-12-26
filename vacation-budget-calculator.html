@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://quge5.com/88/tag.min.js" data-zone="196361" async data-cfasync="false"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacation Budget Calculator - Plan Your Trip Costs | TaxCalcs</title>
+    <meta name="description" content="Free vacation budget calculator. Plan your trip expenses including flights, hotels, food, and activities. Get a complete cost breakdown.">
+    <meta name="keywords" content="vacation budget calculator, trip cost calculator, travel budget, holiday planner, vacation expenses">
+    <link rel="canonical" href="https://taxcalcs.xyz/vacation-budget-calculator.html">
+    <style>
+        :root { --primary: #0ea5e9; --primary-dark: #0284c7; --secondary: #22d3ee; --accent: #f59e0b; --bg-dark: #0f172a; --bg-card: #1e293b; --bg-input: #334155; --text-primary: #f1f5f9; --text-secondary: #94a3b8; --border: #475569; --success: #10b981; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg-dark); color: var(--text-primary); min-height: 100vh; line-height: 1.6; }
+        .header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 40px 20px; text-align: center; }
+        .header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .main-container { max-width: 1200px; margin: 0 auto; padding: 20px; display: grid; grid-template-columns: 1fr 160px; gap: 20px; }
+        .content-area { display: flex; flex-direction: column; gap: 20px; }
+        .sidebar { display: flex; flex-direction: column; gap: 20px; }
+        .card { background: var(--bg-card); border-radius: 16px; padding: 24px; }
+        .card h2 { color: var(--secondary); margin-bottom: 20px; font-size: 1.3rem; }
+        .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 8px; color: var(--text-secondary); }
+        input, select { width: 100%; padding: 15px; border: 2px solid var(--border); border-radius: 10px; font-size: 1rem; background: var(--bg-input); color: var(--text-primary); }
+        input:focus, select:focus { outline: none; border-color: var(--primary); }
+        .result-hero { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); padding: 40px; border-radius: 16px; text-align: center; margin: 20px 0; }
+        .result-hero-value { font-size: 4rem; font-weight: 800; color: white; }
+        .result-hero-label { color: rgba(255,255,255,0.9); font-size: 1.2rem; }
+        .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 20px; }
+        .result-card { background: var(--bg-input); padding: 20px; border-radius: 12px; text-align: center; }
+        .result-value { font-size: 1.5rem; font-weight: 700; color: var(--secondary); }
+        .result-label { color: var(--text-secondary); margin-top: 5px; font-size: 0.85rem; }
+        .breakdown-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--border); }
+        .breakdown-row:last-child { border-bottom: none; }
+        .breakdown-row.total { background: var(--primary); padding: 15px; margin: 15px -24px -24px; border-radius: 0 0 16px 16px; font-weight: bold; }
+        .related-tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 15px; }
+        .related-link { display: block; padding: 12px 16px; background: var(--bg-input); border-radius: 8px; color: var(--text-primary); text-decoration: none; }
+        .related-link:hover { background: var(--primary); }
+        @media (max-width: 968px) { .main-container { grid-template-columns: 1fr; } .sidebar { display: none; } }
+        @media (max-width: 640px) { .form-grid, .results-grid { grid-template-columns: 1fr; } }
+    </style>
+    <script>(function(s){s.dataset.zone='10379224',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+</head>
+<body>
+    </div>
+    </div>
+
+    <header class="header">
+        <h1>✈️ Vacation Budget Calculator</h1>
+    </header>
+
+    <div class="main-container">
+        <div class="content-area">
+            <div class="card">
+                <h2>📅 Trip Details</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Number of Travelers</label>
+                        <input type="number" id="travelers" value="2" min="1" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Trip Duration (nights)</label>
+                        <input type="number" id="nights" value="5" min="1" oninput="calculate()">
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>✈️ Transportation</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Flights (per person)</label>
+                        <input type="number" id="flights" value="350" step="50" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Ground Transport/Rental</label>
+                        <input type="number" id="transport" value="200" step="25" oninput="calculate()">
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🏨 Accommodation</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Hotel (per night)</label>
+                        <input type="number" id="hotel" value="150" step="25" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Number of Rooms</label>
+                        <input type="number" id="rooms" value="1" min="1" oninput="calculate()">
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🍽️ Food & Dining</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Daily Food Budget (per person)</label>
+                        <input type="number" id="food" value="75" step="10" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Dining Style</label>
+                        <select id="diningStyle" onchange="adjustFood()">
+                            <option value="budget">Budget ($40/day)</option>
+                            <option value="moderate" selected>Moderate ($75/day)</option>
+                            <option value="upscale">Upscale ($120/day)</option>
+                            <option value="luxury">Luxury ($200/day)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🎢 Activities & Extras</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Tours & Activities</label>
+                        <input type="number" id="activities" value="300" step="50" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Shopping & Souvenirs</label>
+                        <input type="number" id="shopping" value="200" step="50" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Travel Insurance</label>
+                        <input type="number" id="insurance" value="100" step="25" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Emergency Fund (%)</label>
+                        <input type="number" id="emergency" value="10" min="0" max="30" oninput="calculate()">
+                    </div>
+                </div>
+            </div>
+
+            <div class="result-hero">
+                <div class="result-hero-label">Total Vacation Budget</div>
+                <div class="result-hero-value" id="totalBudget">$0</div>
+            </div>
+
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-value" id="perPerson">$0</div>
+                    <div class="result-label">Per Person</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-value" id="perDay">$0</div>
+                    <div class="result-label">Per Day (Total)</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-value" id="perPersonDay">$0</div>
+                    <div class="result-label">Per Person/Day</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📊 Budget Breakdown</h2>
+                <div class="breakdown-row"><span>✈️ Flights</span><span id="flightsTotal">$0</span></div>
+                <div class="breakdown-row"><span>🚗 Ground Transport</span><span id="transportTotal">$0</span></div>
+                <div class="breakdown-row"><span>🏨 Accommodation</span><span id="hotelTotal">$0</span></div>
+                <div class="breakdown-row"><span>🍽️ Food & Dining</span><span id="foodTotal">$0</span></div>
+                <div class="breakdown-row"><span>🎢 Activities</span><span id="activitiesDisplay">$0</span></div>
+                <div class="breakdown-row"><span>🛍️ Shopping</span><span id="shoppingDisplay">$0</span></div>
+                <div class="breakdown-row"><span>🛡️ Insurance</span><span id="insuranceDisplay">$0</span></div>
+                <div class="breakdown-row"><span>🆘 Emergency Fund</span><span id="emergencyTotal">$0</span></div>
+                <div class="breakdown-row total"><span>Total</span><span id="grandTotal">$0</span></div>
+            </div>
+
+            </div>
+
+            <div class="card">
+                <h2>🔗 Related Tools</h2>
+                <div class="related-tools">
+                    <a href="budget-calculator.html" class="related-link">📊 Budget Calculator</a>
+                    <a href="currency-converter.html" class="related-link">💱 Currency Converter</a>
+                    <a href="tip-calculator.html" class="related-link">💰 Tip Calculator</a>
+                    <a href="road-trip-calculator.html" class="related-link">🚗 Road Trip</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function adjustFood() {
+            const style = document.getElementById('diningStyle').value;
+            const amounts = { budget: 40, moderate: 75, upscale: 120, luxury: 200 };
+            document.getElementById('food').value = amounts[style];
+            calculate();
+        }
+
+        function calculate() {
+            const travelers = parseInt(document.getElementById('travelers').value) || 1;
+            const nights = parseInt(document.getElementById('nights').value) || 1;
+            const days = nights + 1;
+            
+            const flights = parseFloat(document.getElementById('flights').value) || 0;
+            const transport = parseFloat(document.getElementById('transport').value) || 0;
+            const hotel = parseFloat(document.getElementById('hotel').value) || 0;
+            const rooms = parseInt(document.getElementById('rooms').value) || 1;
+            const food = parseFloat(document.getElementById('food').value) || 0;
+            const activities = parseFloat(document.getElementById('activities').value) || 0;
+            const shopping = parseFloat(document.getElementById('shopping').value) || 0;
+            const insurance = parseFloat(document.getElementById('insurance').value) || 0;
+            const emergencyPct = parseFloat(document.getElementById('emergency').value) / 100 || 0;
+            
+            const flightsTotal = flights * travelers;
+            const transportTotal = transport;
+            const hotelTotal = hotel * nights * rooms;
+            const foodTotal = food * days * travelers;
+            
+            const subtotal = flightsTotal + transportTotal + hotelTotal + foodTotal + activities + shopping + insurance;
+            const emergencyTotal = subtotal * emergencyPct;
+            const total = subtotal + emergencyTotal;
+            
+            const perPerson = total / travelers;
+            const perDay = total / days;
+            const perPersonDay = total / travelers / days;
+            
+            document.getElementById('totalBudget').textContent = '$' + Math.round(total).toLocaleString();
+            document.getElementById('perPerson').textContent = '$' + Math.round(perPerson).toLocaleString();
+            document.getElementById('perDay').textContent = '$' + Math.round(perDay).toLocaleString();
+            document.getElementById('perPersonDay').textContent = '$' + Math.round(perPersonDay).toLocaleString();
+            
+            document.getElementById('flightsTotal').textContent = '$' + Math.round(flightsTotal).toLocaleString();
+            document.getElementById('transportTotal').textContent = '$' + Math.round(transportTotal).toLocaleString();
+            document.getElementById('hotelTotal').textContent = '$' + Math.round(hotelTotal).toLocaleString();
+            document.getElementById('foodTotal').textContent = '$' + Math.round(foodTotal).toLocaleString();
+            document.getElementById('activitiesDisplay').textContent = '$' + Math.round(activities).toLocaleString();
+            document.getElementById('shoppingDisplay').textContent = '$' + Math.round(shopping).toLocaleString();
+            document.getElementById('insuranceDisplay').textContent = '$' + Math.round(insurance).toLocaleString();
+            document.getElementById('emergencyTotal').textContent = '$' + Math.round(emergencyTotal).toLocaleString();
+            document.getElementById('grandTotal').textContent = '$' + Math.round(total).toLocaleString();
+        }
+        
+        calculate();
+    </script>
+</body>
+</html>

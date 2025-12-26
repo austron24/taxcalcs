@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://quge5.com/88/tag.min.js" data-zone="196361" async data-cfasync="false"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compound Interest Calculator - Investment Growth | TaxCalcs</title>
+    <meta name="description" content="Free compound interest calculator. See how your money grows over time with compound interest on savings and investments.">
+    <meta name="keywords" content="compound interest calculator, investment calculator, interest calculator, savings growth, compound growth">
+    <link rel="canonical" href="https://taxcalcs.xyz/compound-interest-calculator.html">
+    <style>
+        :root { --primary: #0d9488; --primary-dark: #0f766e; --secondary: #22d3ee; --accent: #f59e0b; --bg-dark: #0f172a; --bg-card: #1e293b; --bg-input: #334155; --text-primary: #f1f5f9; --text-secondary: #94a3b8; --border: #475569; --success: #10b981; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg-dark); color: var(--text-primary); min-height: 100vh; line-height: 1.6; }
+        .header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 40px 20px; text-align: center; }
+        .header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .main-container { max-width: 1200px; margin: 0 auto; padding: 20px; display: grid; grid-template-columns: 1fr 160px; gap: 20px; }
+        .content-area { display: flex; flex-direction: column; gap: 20px; }
+        .sidebar { display: flex; flex-direction: column; gap: 20px; }
+        .card { background: var(--bg-card); border-radius: 16px; padding: 24px; }
+        .card h2 { color: var(--secondary); margin-bottom: 20px; font-size: 1.3rem; }
+        .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 8px; color: var(--text-secondary); }
+        input, select { width: 100%; padding: 15px; border: 2px solid var(--border); border-radius: 10px; font-size: 1rem; background: var(--bg-input); color: var(--text-primary); }
+        input:focus, select:focus { outline: none; border-color: var(--primary); }
+        .result-hero { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); padding: 35px; border-radius: 16px; text-align: center; margin: 20px 0; }
+        .result-hero-value { font-size: 3rem; font-weight: 800; color: white; }
+        .result-hero-label { color: rgba(255,255,255,0.8); }
+        .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 20px; }
+        .result-card { background: var(--bg-input); padding: 20px; border-radius: 12px; text-align: center; }
+        .result-value { font-size: 1.3rem; font-weight: 700; color: var(--secondary); }
+        .result-label { color: var(--text-secondary); margin-top: 5px; font-size: 0.85rem; }
+        .breakdown-row { display: flex; justify-content: space-between; padding: 12px 15px; background: var(--bg-input); border-radius: 8px; margin-bottom: 8px; }
+        .related-tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 15px; }
+        .related-link { display: block; padding: 12px 16px; background: var(--bg-input); border-radius: 8px; color: var(--text-primary); text-decoration: none; }
+        .related-link:hover { background: var(--primary); }
+        @media (max-width: 968px) { .main-container { grid-template-columns: 1fr; } .sidebar { display: none; } }
+        @media (max-width: 640px) { .form-grid, .results-grid { grid-template-columns: 1fr; } }
+    </style>
+    <script>(function(s){s.dataset.zone='10379224',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+</head>
+<body>
+    </div>
+    </div>
+
+    <header class="header">
+        <h1>💰 Compound Interest Calculator</h1>
+    </header>
+
+    <div class="main-container">
+        <div class="content-area">
+            <div class="card">
+                <h2>📊 Investment Details</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Initial Investment ($)</label>
+                        <input type="number" id="principal" value="10000" step="1000" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Monthly Contribution ($)</label>
+                        <input type="number" id="contribution" value="200" step="50" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Annual Interest Rate (%)</label>
+                        <input type="number" id="rate" value="7" step="0.5" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Time Period (years)</label>
+                        <input type="number" id="years" value="20" min="1" max="50" oninput="calculate()">
+                    </div>
+                    <div class="form-group" style="grid-column: span 2;">
+                        <label>Compound Frequency</label>
+                        <select id="frequency" onchange="calculate()">
+                            <option value="1">Annually</option>
+                            <option value="2">Semi-Annually</option>
+                            <option value="4">Quarterly</option>
+                            <option value="12" selected>Monthly</option>
+                            <option value="365">Daily</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="result-hero">
+                    <div class="result-hero-label">Future Value</div>
+                    <div class="result-hero-value" id="futureValue">$0</div>
+                </div>
+
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-value" id="totalContributions">$0</div>
+                        <div class="result-label">Total Contributions</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value" id="totalInterest">$0</div>
+                        <div class="result-label">Total Interest</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value" id="interestPct">0%</div>
+                        <div class="result-label">Interest Percentage</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📈 Growth Milestones</h2>
+                <div id="milestones"></div>
+            </div>
+
+            </div>
+
+            <div class="card">
+                <h2>🔗 Related Tools</h2>
+                <div class="related-tools">
+                    <a href="investment-calculator.html" class="related-link">📈 Investment</a>
+                    <a href="retirement-calculator.html" class="related-link">🏖️ Retirement</a>
+                    <a href="savings-goal-calculator.html" class="related-link">🎯 Savings Goal</a>
+                    <a href="inflation-calculator.html" class="related-link">📉 Inflation</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            const principal = parseFloat(document.getElementById('principal').value) || 0;
+            const contribution = parseFloat(document.getElementById('contribution').value) || 0;
+            const rate = parseFloat(document.getElementById('rate').value) / 100;
+            const years = parseInt(document.getElementById('years').value) || 1;
+            const frequency = parseInt(document.getElementById('frequency').value);
+
+            const periodicRate = rate / frequency;
+            const totalPeriods = years * frequency;
+            const contributionsPerPeriod = contribution * (12 / frequency);
+
+            // Future value of initial principal
+            const fvPrincipal = principal * Math.pow(1 + periodicRate, totalPeriods);
+
+            // Future value of periodic contributions
+            const fvContributions = contributionsPerPeriod * ((Math.pow(1 + periodicRate, totalPeriods) - 1) / periodicRate);
+
+            const futureValue = fvPrincipal + fvContributions;
+            const totalContributions = principal + (contribution * 12 * years);
+            const totalInterest = futureValue - totalContributions;
+            const interestPct = (totalInterest / totalContributions) * 100;
+
+            document.getElementById('futureValue').textContent = '$' + Math.round(futureValue).toLocaleString();
+            document.getElementById('totalContributions').textContent = '$' + Math.round(totalContributions).toLocaleString();
+            document.getElementById('totalInterest').textContent = '$' + Math.round(totalInterest).toLocaleString();
+            document.getElementById('interestPct').textContent = interestPct.toFixed(0) + '%';
+
+            // Calculate milestones
+            let html = '';
+            const checkYears = [5, 10, 15, 20, 25, 30].filter(y => y <= years);
+            checkYears.forEach(y => {
+                const periods = y * frequency;
+                const fvP = principal * Math.pow(1 + periodicRate, periods);
+                const fvC = contributionsPerPeriod * ((Math.pow(1 + periodicRate, periods) - 1) / periodicRate);
+                html += '<div class="breakdown-row"><span>After ' + y + ' years</span><span>$' + Math.round(fvP + fvC).toLocaleString() + '</span></div>';
+            });
+            document.getElementById('milestones').innerHTML = html;
+        }
+        calculate();
+    </script>
+</body>
+</html>

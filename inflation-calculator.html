@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://quge5.com/88/tag.min.js" data-zone="196361" async data-cfasync="false"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inflation Calculator - Buying Power Over Time | TaxCalcs</title>
+    <meta name="description" content="Free inflation calculator. See how inflation affects your money's purchasing power over time.">
+    <meta name="keywords" content="inflation calculator, purchasing power, cost of living, inflation rate, money value">
+    <link rel="canonical" href="https://taxcalcs.xyz/inflation-calculator.html">
+    <style>
+        :root { --primary: #f97316; --primary-dark: #ea580c; --secondary: #22d3ee; --accent: #f59e0b; --bg-dark: #0f172a; --bg-card: #1e293b; --bg-input: #334155; --text-primary: #f1f5f9; --text-secondary: #94a3b8; --border: #475569; --success: #10b981; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg-dark); color: var(--text-primary); min-height: 100vh; line-height: 1.6; }
+        .header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 40px 20px; text-align: center; }
+        .header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .main-container { max-width: 1200px; margin: 0 auto; padding: 20px; display: grid; grid-template-columns: 1fr 160px; gap: 20px; }
+        .content-area { display: flex; flex-direction: column; gap: 20px; }
+        .sidebar { display: flex; flex-direction: column; gap: 20px; }
+        .card { background: var(--bg-card); border-radius: 16px; padding: 24px; }
+        .card h2 { color: var(--secondary); margin-bottom: 20px; font-size: 1.3rem; }
+        .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; color: var(--text-secondary); }
+        input, select { width: 100%; padding: 15px; border: 2px solid var(--border); border-radius: 10px; font-size: 1rem; background: var(--bg-input); color: var(--text-primary); }
+        input:focus, select:focus { outline: none; border-color: var(--primary); }
+        .result-hero { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); padding: 35px; border-radius: 16px; text-align: center; margin: 20px 0; }
+        .result-hero-value { font-size: 3rem; font-weight: 800; color: white; }
+        .result-hero-label { color: rgba(255,255,255,0.8); }
+        .results-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 20px; }
+        .result-card { background: var(--bg-input); padding: 20px; border-radius: 12px; text-align: center; }
+        .result-value { font-size: 1.3rem; font-weight: 700; color: var(--secondary); }
+        .result-label { color: var(--text-secondary); margin-top: 5px; font-size: 0.85rem; }
+        .breakdown-row { display: flex; justify-content: space-between; padding: 12px 15px; background: var(--bg-input); border-radius: 8px; margin-bottom: 8px; }
+        .related-tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 15px; }
+        .related-link { display: block; padding: 12px 16px; background: var(--bg-input); border-radius: 8px; color: var(--text-primary); text-decoration: none; }
+        .related-link:hover { background: var(--primary); }
+        @media (max-width: 968px) { .main-container { grid-template-columns: 1fr; } .sidebar { display: none; } }
+        @media (max-width: 640px) { .form-grid, .results-grid { grid-template-columns: 1fr 1fr; } }
+    </style>
+    <script>(function(s){s.dataset.zone='10379224',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+</head>
+<body>
+    </div>
+    </div>
+
+    <header class="header">
+        <h1>📈 Inflation Calculator</h1>
+    </header>
+
+    <div class="main-container">
+        <div class="content-area">
+            <div class="card">
+                <h2>📊 Calculate Inflation Impact</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Amount ($)</label>
+                        <input type="number" id="amount" value="100" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Number of Years</label>
+                        <input type="number" id="years" value="10" min="1" max="100" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Annual Inflation Rate (%)</label>
+                        <input type="number" id="rate" value="3.0" step="0.1" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Direction</label>
+                        <select id="direction" onchange="calculate()">
+                            <option value="future">Future Value (Forward)</option>
+                            <option value="past">Past Value (Backward)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="result-hero">
+                    <div class="result-hero-label" id="heroLabel">Equivalent Buying Power</div>
+                    <div class="result-hero-value" id="result">$0</div>
+                </div>
+
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-value" id="totalInflation">0%</div>
+                        <div class="result-label">Total Inflation</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value" id="purchasingPowerLoss">$0</div>
+                        <div class="result-label">Purchasing Power Change</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value" id="avgAnnual">0%</div>
+                        <div class="result-label">Avg Annual Rate</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value" id="multiplier">1.00x</div>
+                        <div class="result-label">Price Multiplier</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📅 Year-by-Year Breakdown</h2>
+                <div id="yearlyBreakdown" style="max-height: 300px; overflow-y: auto;"></div>
+            </div>
+
+            <div class="card">
+                <h2>📊 Historical Average Inflation Rates</h2>
+                <div class="breakdown-row"><span>US Historical Average (1913-2024)</span><span>~3.2%</span></div>
+                <div class="breakdown-row"><span>Recent Decade (2014-2024)</span><span>~3.5%</span></div>
+                <div class="breakdown-row"><span>Federal Reserve Target</span><span>2.0%</span></div>
+                <div class="breakdown-row"><span>2022 Peak</span><span>9.1%</span></div>
+                <div class="breakdown-row"><span>2024 Rate</span><span>~3.0%</span></div>
+            </div>
+
+            </div>
+
+            <div class="card">
+                <h2>🔗 Related Tools</h2>
+                <div class="related-tools">
+                    <a href="compound-interest-calculator.html" class="related-link">💵 Compound Interest</a>
+                    <a href="investment-calculator.html" class="related-link">📈 Investment</a>
+                    <a href="retirement-calculator.html" class="related-link">🎯 Retirement</a>
+                    <a href="salary-calculator.html" class="related-link">💰 Salary</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            const amount = parseFloat(document.getElementById('amount').value) || 0;
+            const years = parseInt(document.getElementById('years').value) || 0;
+            const rate = parseFloat(document.getElementById('rate').value) / 100 || 0;
+            const direction = document.getElementById('direction').value;
+
+            let result, multiplier;
+            if (direction === 'future') {
+                multiplier = Math.pow(1 + rate, years);
+                result = amount * multiplier;
+                document.getElementById('heroLabel').textContent = 'Cost in ' + years + ' Years';
+            } else {
+                multiplier = Math.pow(1 + rate, years);
+                result = amount / multiplier;
+                document.getElementById('heroLabel').textContent = 'Worth ' + years + ' Years Ago';
+            }
+
+            const totalInflation = (multiplier - 1) * 100;
+            const purchasingPowerChange = direction === 'future' ? result - amount : amount - result;
+
+            document.getElementById('result').textContent = '$' + result.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('totalInflation').textContent = totalInflation.toFixed(1) + '%';
+            document.getElementById('purchasingPowerLoss').textContent = (purchasingPowerChange >= 0 ? '+$' : '-$') + Math.abs(purchasingPowerChange).toFixed(2);
+            document.getElementById('avgAnnual').textContent = (rate * 100).toFixed(1) + '%';
+            document.getElementById('multiplier').textContent = multiplier.toFixed(2) + 'x';
+
+            let yearlyHtml = '';
+            let currentValue = direction === 'future' ? amount : result;
+            const currentYear = new Date().getFullYear();
+            
+            for (let i = 0; i <= years; i++) {
+                const year = direction === 'future' ? currentYear + i : currentYear - years + i;
+                yearlyHtml += '<div class="breakdown-row"><span>Year ' + year + '</span><span>$' + currentValue.toFixed(2) + '</span></div>';
+                currentValue *= (1 + rate);
+            }
+            document.getElementById('yearlyBreakdown').innerHTML = yearlyHtml;
+        }
+        calculate();
+    </script>
+</body>
+</html>

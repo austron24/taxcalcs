@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://quge5.com/88/tag.min.js" data-zone="196361" async data-cfasync="false"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Calculator - Calculate Investment Growth | TaxCalcs</title>
+    <meta name="description" content="Free investment calculator. Calculate future value of investments with regular contributions and compound interest.">
+    <meta name="keywords" content="investment calculator, investment growth, future value calculator, compound growth">
+    <link rel="canonical" href="https://taxcalcs.xyz/investment-calculator.html">
+    <style>
+        :root { --primary: #0f766e; --primary-dark: #115e59; --secondary: #22d3ee; --accent: #f59e0b; --bg-dark: #0f172a; --bg-card: #1e293b; --bg-input: #334155; --text-primary: #f1f5f9; --text-secondary: #94a3b8; --border: #475569; --success: #10b981; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg-dark); color: var(--text-primary); min-height: 100vh; line-height: 1.6; }
+        .header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 40px 20px; text-align: center; }
+        .header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .main-container { max-width: 1200px; margin: 0 auto; padding: 20px; display: grid; grid-template-columns: 1fr 160px; gap: 20px; }
+        .content-area { display: flex; flex-direction: column; gap: 20px; }
+        .sidebar { display: flex; flex-direction: column; gap: 20px; }
+        .card { background: var(--bg-card); border-radius: 16px; padding: 24px; }
+        .card h2 { color: var(--secondary); margin-bottom: 20px; font-size: 1.3rem; }
+        .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 8px; color: var(--text-secondary); }
+        input, select { width: 100%; padding: 15px; border: 2px solid var(--border); border-radius: 10px; font-size: 1rem; background: var(--bg-input); color: var(--text-primary); }
+        input:focus, select:focus { outline: none; border-color: var(--primary); }
+        .result-hero { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); padding: 35px; border-radius: 16px; text-align: center; margin: 20px 0; }
+        .result-hero-value { font-size: 3rem; font-weight: 800; color: white; }
+        .result-hero-label { color: rgba(255,255,255,0.8); }
+        .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 20px; }
+        .result-card { background: var(--bg-input); padding: 20px; border-radius: 12px; text-align: center; }
+        .result-value { font-size: 1.3rem; font-weight: 700; color: var(--secondary); }
+        .result-label { color: var(--text-secondary); margin-top: 5px; font-size: 0.85rem; }
+        .chart-container { height: 250px; margin: 20px 0; position: relative; }
+        .chart-bar { position: absolute; bottom: 0; display: flex; flex-direction: column; align-items: center; }
+        .bar-segment { width: 40px; transition: height 0.3s; }
+        .bar-label { font-size: 0.7rem; color: var(--text-secondary); margin-top: 5px; text-align: center; }
+        .chart-legend { display: flex; justify-content: center; gap: 30px; margin-top: 10px; }
+        .legend-item { display: flex; align-items: center; gap: 8px; }
+        .legend-color { width: 16px; height: 16px; border-radius: 4px; }
+        .related-tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 15px; }
+        .related-link { display: block; padding: 12px 16px; background: var(--bg-input); border-radius: 8px; color: var(--text-primary); text-decoration: none; }
+        .related-link:hover { background: var(--primary); }
+        @media (max-width: 968px) { .main-container { grid-template-columns: 1fr; } .sidebar { display: none; } }
+        @media (max-width: 640px) { .form-grid, .results-grid { grid-template-columns: 1fr; } }
+    </style>
+    <script>(function(s){s.dataset.zone='10379224',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+</head>
+<body>
+    </div>
+    </div>
+
+    <header class="header">
+        <h1>📈 Investment Calculator</h1>
+    </header>
+
+    <div class="main-container">
+        <div class="content-area">
+            <div class="card">
+                <h2>💰 Investment Details</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Initial Investment ($)</label>
+                        <input type="number" id="initial" value="10000" step="1000" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Monthly Contribution ($)</label>
+                        <input type="number" id="monthly" value="500" step="50" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Annual Return Rate (%)</label>
+                        <input type="number" id="rate" value="8" step="0.5" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Investment Period (years)</label>
+                        <input type="number" id="years" value="20" step="1" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Compound Frequency</label>
+                        <select id="compound" onchange="calculate()">
+                            <option value="1">Annually</option>
+                            <option value="2">Semi-annually</option>
+                            <option value="4">Quarterly</option>
+                            <option value="12" selected>Monthly</option>
+                            <option value="365">Daily</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Contribution Timing</label>
+                        <select id="timing" onchange="calculate()">
+                            <option value="end" selected>End of Period</option>
+                            <option value="beginning">Beginning of Period</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="result-hero">
+                    <div class="result-hero-label">Future Value</div>
+                    <div class="result-hero-value" id="futureValue">$0</div>
+                </div>
+
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-value" id="totalContributions">$0</div>
+                        <div class="result-label">Total Contributions</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value" id="totalInterest">$0</div>
+                        <div class="result-label">Total Interest Earned</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value" id="returnPercent">0%</div>
+                        <div class="result-label">Total Return</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📊 Growth Over Time</h2>
+                <div class="chart-container" id="chart"></div>
+                <div class="chart-legend">
+                    <div class="legend-item"><div class="legend-color" style="background: var(--secondary);"></div>Contributions</div>
+                    <div class="legend-item"><div class="legend-color" style="background: var(--accent);"></div>Interest Earned</div>
+                </div>
+            </div>
+
+            </div>
+
+            <div class="card">
+                <h2>🔗 Related Tools</h2>
+                <div class="related-tools">
+                    <a href="compound-interest-calculator.html" class="related-link">💹 Compound Interest</a>
+                    <a href="401k-calculator.html" class="related-link">💼 401(k) Calculator</a>
+                    <a href="roth-ira-calculator.html" class="related-link">📊 Roth IRA</a>
+                    <a href="retirement-calculator.html" class="related-link">🏖️ Retirement</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            const initial = parseFloat(document.getElementById('initial').value) || 0;
+            const monthly = parseFloat(document.getElementById('monthly').value) || 0;
+            const rate = parseFloat(document.getElementById('rate').value) || 0;
+            const years = parseInt(document.getElementById('years').value) || 0;
+            const compound = parseInt(document.getElementById('compound').value) || 12;
+            const timing = document.getElementById('timing').value;
+
+            const periodicRate = rate / 100 / compound;
+            const periods = years * compound;
+            const monthlyPeriods = compound / 12;
+
+            // Calculate future value of initial investment
+            const fvInitial = initial * Math.pow(1 + periodicRate, periods);
+
+            // Calculate future value of periodic contributions
+            let fvContributions = 0;
+            if (periodicRate > 0) {
+                const contributionPerPeriod = monthly / monthlyPeriods;
+                if (timing === 'beginning') {
+                    fvContributions = contributionPerPeriod * ((Math.pow(1 + periodicRate, periods) - 1) / periodicRate) * (1 + periodicRate);
+                } else {
+                    fvContributions = contributionPerPeriod * ((Math.pow(1 + periodicRate, periods) - 1) / periodicRate);
+                }
+            } else {
+                fvContributions = monthly * 12 * years;
+            }
+
+            const futureValue = fvInitial + fvContributions;
+            const totalContributions = initial + (monthly * 12 * years);
+            const totalInterest = futureValue - totalContributions;
+            const returnPercent = totalContributions > 0 ? ((futureValue - totalContributions) / totalContributions) * 100 : 0;
+
+            document.getElementById('futureValue').textContent = '$' + Math.round(futureValue).toLocaleString();
+            document.getElementById('totalContributions').textContent = '$' + Math.round(totalContributions).toLocaleString();
+            document.getElementById('totalInterest').textContent = '$' + Math.round(totalInterest).toLocaleString();
+            document.getElementById('returnPercent').textContent = returnPercent.toFixed(1) + '%';
+
+            // Build chart
+            const chartEl = document.getElementById('chart');
+            chartEl.innerHTML = '';
+            
+            const intervals = Math.min(years, 10);
+            const yearStep = Math.ceil(years / intervals);
+            let maxValue = futureValue;
+            
+            const barWidth = 100 / (intervals + 1);
+            
+            for (let i = 0; i <= intervals; i++) {
+                const y = Math.min(i * yearStep, years);
+                const p = y * compound;
+                const fvInit = initial * Math.pow(1 + periodicRate, p);
+                let fvCont = 0;
+                if (periodicRate > 0) {
+                    const cPerP = monthly / monthlyPeriods;
+                    fvCont = cPerP * ((Math.pow(1 + periodicRate, p) - 1) / periodicRate);
+                } else {
+                    fvCont = monthly * 12 * y;
+                }
+                
+                const totalVal = fvInit + fvCont;
+                const contributions = initial + (monthly * 12 * y);
+                const interest = totalVal - contributions;
+                
+                const totalHeight = (totalVal / maxValue) * 200;
+                const contribHeight = (contributions / maxValue) * 200;
+                const interestHeight = totalHeight - contribHeight;
+                
+                const bar = document.createElement('div');
+                bar.className = 'chart-bar';
+                bar.style.left = (i * barWidth + barWidth/4) + '%';
+                bar.style.width = (barWidth * 0.6) + '%';
+                bar.innerHTML = `
+                    <div class="bar-segment" style="height: ${interestHeight}px; background: var(--accent);"></div>
+                    <div class="bar-segment" style="height: ${contribHeight}px; background: var(--secondary);"></div>
+                    <div class="bar-label">Year ${y}</div>
+                `;
+                chartEl.appendChild(bar);
+            }
+        }
+        calculate();
+    </script>
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://quge5.com/88/tag.min.js" data-zone="196361" async data-cfasync="false"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Savings Calculator - Education Fund Planner | TaxCalcs</title>
+    <meta name="description" content="Free college savings calculator. Plan how much to save for college with projected costs, 529 plans, and investment growth projections.">
+    <meta name="keywords" content="college savings calculator, 529 plan, education fund, college planning, tuition savings">
+    <link rel="canonical" href="https://taxcalcs.xyz/college-savings-calculator.html">
+    <style>
+        :root { --primary: #3b82f6; --primary-dark: #2563eb; --secondary: #22d3ee; --accent: #f59e0b; --bg-dark: #0f172a; --bg-card: #1e293b; --bg-input: #334155; --text-primary: #f1f5f9; --text-secondary: #94a3b8; --border: #475569; --success: #10b981; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg-dark); color: var(--text-primary); min-height: 100vh; line-height: 1.6; }
+        .header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 40px 20px; text-align: center; }
+        .header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .main-container { max-width: 1200px; margin: 0 auto; padding: 20px; display: grid; grid-template-columns: 1fr 160px; gap: 20px; }
+        .content-area { display: flex; flex-direction: column; gap: 20px; }
+        .sidebar { display: flex; flex-direction: column; gap: 20px; }
+        .card { background: var(--bg-card); border-radius: 16px; padding: 24px; }
+        .card h2 { color: var(--secondary); margin-bottom: 20px; font-size: 1.3rem; }
+        .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 8px; color: var(--text-secondary); }
+        input, select { width: 100%; padding: 15px; border: 2px solid var(--border); border-radius: 10px; font-size: 1rem; background: var(--bg-input); color: var(--text-primary); }
+        input:focus, select:focus { outline: none; border-color: var(--primary); }
+        .result-hero { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); padding: 40px; border-radius: 16px; text-align: center; margin: 20px 0; }
+        .result-hero-value { font-size: 2.5rem; font-weight: 800; color: white; }
+        .result-hero-label { color: rgba(255,255,255,0.9); font-size: 1.2rem; }
+        .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 20px; }
+        .result-card { background: var(--bg-input); padding: 20px; border-radius: 12px; text-align: center; }
+        .result-value { font-size: 1.5rem; font-weight: 700; color: var(--secondary); }
+        .result-label { color: var(--text-secondary); margin-top: 5px; font-size: 0.85rem; }
+        .breakdown-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--border); }
+        .breakdown-row:last-child { border-bottom: none; }
+        .progress-bar { background: var(--bg-input); border-radius: 10px; height: 20px; margin-top: 15px; overflow: hidden; }
+        .progress-fill { background: linear-gradient(90deg, var(--primary), var(--success)); height: 100%; transition: width 0.3s; }
+        .related-tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 15px; }
+        .related-link { display: block; padding: 12px 16px; background: var(--bg-input); border-radius: 8px; color: var(--text-primary); text-decoration: none; }
+        .related-link:hover { background: var(--primary); }
+        @media (max-width: 968px) { .main-container { grid-template-columns: 1fr; } .sidebar { display: none; } }
+        @media (max-width: 640px) { .form-grid, .results-grid { grid-template-columns: 1fr; } }
+    </style>
+    <script>(function(s){s.dataset.zone='10379224',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+</head>
+<body>
+    </div>
+    </div>
+
+    <header class="header">
+        <h1>🎓 College Savings Calculator</h1>
+    </header>
+
+    <div class="main-container">
+        <div class="content-area">
+            <div class="card">
+                <h2>👶 Child & Education Details</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Child's Current Age</label>
+                        <input type="number" id="childAge" value="5" min="0" max="17" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>College Start Age</label>
+                        <input type="number" id="startAge" value="18" min="16" max="22" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>School Type</label>
+                        <select id="schoolType" onchange="calculate()">
+                            <option value="community">Community College (2-year)</option>
+                            <option value="instate" selected>Public In-State (4-year)</option>
+                            <option value="outstate">Public Out-of-State</option>
+                            <option value="private">Private University</option>
+                            <option value="ivy">Elite/Ivy League</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Coverage Goal</label>
+                        <select id="coverage" onchange="calculate()">
+                            <option value="50">50% of costs</option>
+                            <option value="75">75% of costs</option>
+                            <option value="100" selected>100% of costs</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>💰 Current Savings</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Current Savings ($)</label>
+                        <input type="number" id="currentSavings" value="10000" min="0" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Expected Annual Return (%)</label>
+                        <select id="returnRate" onchange="calculate()">
+                            <option value="4">Conservative (4%)</option>
+                            <option value="6" selected>Moderate (6%)</option>
+                            <option value="8">Aggressive (8%)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result-hero">
+                <div class="result-hero-label">Monthly Savings Needed</div>
+                <div class="result-hero-value" id="monthlySavings">$0</div>
+            </div>
+
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-value" id="projectedCost">$0</div>
+                    <div class="result-label">Projected 4-Year Cost</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-value" id="targetSavings">$0</div>
+                    <div class="result-label">Savings Goal</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-value" id="yearsToSave">0</div>
+                    <div class="result-label">Years to Save</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📊 Savings Progress</h2>
+                <div class="breakdown-row"><span>Current Savings</span><span id="currentBreak">$0</span></div>
+                <div class="breakdown-row"><span>Growth on Current Savings</span><span id="growthBreak">$0</span></div>
+                <div class="breakdown-row"><span>Total Contributions Needed</span><span id="contributionsBreak">$0</span></div>
+                <div class="breakdown-row"><span>Growth on Contributions</span><span id="contributionGrowth">$0</span></div>
+                <div class="breakdown-row" style="font-weight: bold;"><span>Total at College Start</span><span id="totalAtStart">$0</span></div>
+                
+                <div style="margin-top: 15px;">
+                    <span style="color: var(--text-secondary);">Progress to Goal: <span id="progressPercent">0%</span></span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill" style="width: 0%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+
+            <div class="card">
+                <h2>🔗 Related Tools</h2>
+                <div class="related-tools">
+                    <a href="529-calculator.html" class="related-link">📚 529 Plan</a>
+                    <a href="college-cost-calculator.html" class="related-link">🏫 College Cost</a>
+                    <a href="student-loan-calculator.html" class="related-link">💳 Student Loans</a>
+                    <a href="compound-interest-calculator.html" class="related-link">📈 Compound Interest</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Current annual costs (2024 averages including tuition, fees, room & board)
+        const schoolCosts = {
+            community: 12000,
+            instate: 26000,
+            outstate: 43000,
+            private: 58000,
+            ivy: 85000
+        };
+        const INFLATION_RATE = 0.05; // 5% college cost inflation
+
+        function calculate() {
+            const childAge = parseInt(document.getElementById('childAge').value) || 5;
+            const startAge = parseInt(document.getElementById('startAge').value) || 18;
+            const schoolType = document.getElementById('schoolType').value;
+            const coverage = parseInt(document.getElementById('coverage').value) / 100;
+            const currentSavings = parseFloat(document.getElementById('currentSavings').value) || 0;
+            const returnRate = parseFloat(document.getElementById('returnRate').value) / 100;
+
+            const yearsToSave = Math.max(0, startAge - childAge);
+            const currentAnnualCost = schoolCosts[schoolType];
+            const years = schoolType === 'community' ? 2 : 4;
+            
+            // Project future cost with inflation
+            let projectedCost = 0;
+            for (let i = 0; i < years; i++) {
+                projectedCost += currentAnnualCost * Math.pow(1 + INFLATION_RATE, yearsToSave + i);
+            }
+            
+            const targetSavings = projectedCost * coverage;
+            
+            // Calculate future value of current savings
+            const fvCurrentSavings = currentSavings * Math.pow(1 + returnRate, yearsToSave);
+            
+            // Amount still needed
+            const amountNeeded = Math.max(0, targetSavings - fvCurrentSavings);
+            
+            // Monthly payment needed (PMT formula for annuity)
+            const monthlyRate = returnRate / 12;
+            const months = yearsToSave * 12;
+            let monthlySavings = 0;
+            if (months > 0 && monthlyRate > 0) {
+                monthlySavings = amountNeeded * monthlyRate / (Math.pow(1 + monthlyRate, months) - 1);
+            } else if (months > 0) {
+                monthlySavings = amountNeeded / months;
+            }
+
+            // Calculate contribution growth
+            const totalContributions = monthlySavings * months;
+            const contributionGrowth = amountNeeded - totalContributions;
+            const growthOnCurrent = fvCurrentSavings - currentSavings;
+            const totalAtStart = fvCurrentSavings + amountNeeded;
+
+            // Progress calculation
+            const progressPercent = targetSavings > 0 ? Math.min(100, (currentSavings / targetSavings) * 100) : 0;
+
+            document.getElementById('monthlySavings').textContent = '$' + Math.round(monthlySavings).toLocaleString();
+            document.getElementById('projectedCost').textContent = '$' + Math.round(projectedCost).toLocaleString();
+            document.getElementById('targetSavings').textContent = '$' + Math.round(targetSavings).toLocaleString();
+            document.getElementById('yearsToSave').textContent = yearsToSave + ' years';
+
+            document.getElementById('currentBreak').textContent = '$' + currentSavings.toLocaleString();
+            document.getElementById('growthBreak').textContent = '$' + Math.round(growthOnCurrent).toLocaleString();
+            document.getElementById('contributionsBreak').textContent = '$' + Math.round(totalContributions).toLocaleString();
+            document.getElementById('contributionGrowth').textContent = '$' + Math.round(contributionGrowth).toLocaleString();
+            document.getElementById('totalAtStart').textContent = '$' + Math.round(totalAtStart).toLocaleString();
+
+            document.getElementById('progressPercent').textContent = progressPercent.toFixed(1) + '%';
+            document.getElementById('progressFill').style.width = progressPercent + '%';
+        }
+
+        calculate();
+    </script>
+</body>
+</html>

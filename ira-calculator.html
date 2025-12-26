@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://quge5.com/88/tag.min.js" data-zone="196361" async data-cfasync="false"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IRA Calculator - Traditional vs Roth IRA Comparison | TaxCalcs</title>
+    <meta name="description" content="Free IRA calculator. Compare Traditional IRA vs Roth IRA, calculate retirement savings growth, and see tax benefits.">
+    <meta name="keywords" content="IRA calculator, traditional IRA, Roth IRA, retirement calculator, IRA comparison">
+    <link rel="canonical" href="https://taxcalcs.xyz/ira-calculator.html">
+    <style>
+        :root { --primary: #0369a1; --primary-dark: #075985; --secondary: #22d3ee; --accent: #f59e0b; --bg-dark: #0f172a; --bg-card: #1e293b; --bg-input: #334155; --text-primary: #f1f5f9; --text-secondary: #94a3b8; --border: #475569; --success: #10b981; --trad: #8b5cf6; --roth: #10b981; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg-dark); color: var(--text-primary); min-height: 100vh; line-height: 1.6; }
+        .header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 40px 20px; text-align: center; }
+        .header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .main-container { max-width: 1200px; margin: 0 auto; padding: 20px; display: grid; grid-template-columns: 1fr 160px; gap: 20px; }
+        .content-area { display: flex; flex-direction: column; gap: 20px; }
+        .sidebar { display: flex; flex-direction: column; gap: 20px; }
+        .card { background: var(--bg-card); border-radius: 16px; padding: 24px; }
+        .card h2 { color: var(--secondary); margin-bottom: 20px; font-size: 1.3rem; }
+        .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 8px; color: var(--text-secondary); }
+        input, select { width: 100%; padding: 15px; border: 2px solid var(--border); border-radius: 10px; font-size: 1rem; background: var(--bg-input); color: var(--text-primary); }
+        input:focus, select:focus { outline: none; border-color: var(--primary); }
+        .comparison-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 20px; }
+        .ira-card { padding: 25px; border-radius: 16px; text-align: center; }
+        .ira-card.traditional { background: linear-gradient(135deg, var(--trad), #7c3aed); }
+        .ira-card.roth { background: linear-gradient(135deg, var(--roth), #059669); }
+        .ira-card h3 { font-size: 1.3rem; margin-bottom: 15px; }
+        .ira-value { font-size: 2.5rem; font-weight: 800; color: white; margin: 10px 0; }
+        .ira-label { color: rgba(255,255,255,0.8); font-size: 0.9rem; }
+        .comparison-row { display: flex; justify-content: space-between; padding: 15px; background: var(--bg-input); border-radius: 8px; margin-bottom: 10px; }
+        .comparison-row .label { color: var(--text-secondary); }
+        .comparison-row .values { display: flex; gap: 40px; }
+        .comparison-row .trad { color: var(--trad); font-weight: bold; }
+        .comparison-row .roth { color: var(--roth); font-weight: bold; }
+        .winner-badge { display: inline-block; background: var(--success); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; margin-top: 10px; }
+        .info-box { background: var(--bg-input); padding: 15px; border-radius: 8px; margin-top: 15px; border-left: 4px solid var(--accent); }
+        .related-tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 15px; }
+        .related-link { display: block; padding: 12px 16px; background: var(--bg-input); border-radius: 8px; color: var(--text-primary); text-decoration: none; }
+        .related-link:hover { background: var(--primary); }
+        @media (max-width: 968px) { .main-container { grid-template-columns: 1fr; } .sidebar { display: none; } }
+        @media (max-width: 640px) { .form-grid, .comparison-grid { grid-template-columns: 1fr; } }
+    </style>
+    <script>(function(s){s.dataset.zone='10379224',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+</head>
+<body>
+    </div>
+    </div>
+
+    <header class="header">
+        <h1>📊 IRA Calculator</h1>
+    </header>
+
+    <div class="main-container">
+        <div class="content-area">
+            <div class="card">
+                <h2>📋 Your Information</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Current Age</label>
+                        <input type="number" id="age" value="30" step="1" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Retirement Age</label>
+                        <input type="number" id="retireAge" value="65" step="1" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Annual IRA Contribution ($)</label>
+                        <input type="number" id="contribution" value="7000" step="500" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Expected Annual Return (%)</label>
+                        <input type="number" id="return" value="7" step="0.5" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Current Tax Bracket (%)</label>
+                        <input type="number" id="currentTax" value="24" step="1" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Retirement Tax Bracket (%)</label>
+                        <input type="number" id="retireTax" value="22" step="1" oninput="calculate()">
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>💰 IRA Comparison</h2>
+                <div class="comparison-grid">
+                    <div class="ira-card traditional">
+                        <h3>Traditional IRA</h3>
+                        <div class="ira-label">Balance at Retirement</div>
+                        <div class="ira-value" id="tradBalance">$0</div>
+                        <div class="ira-label">After-Tax Value</div>
+                        <div class="ira-value" id="tradAfterTax" style="font-size: 1.8rem;">$0</div>
+                    </div>
+                    <div class="ira-card roth">
+                        <h3>Roth IRA</h3>
+                        <div class="ira-label">Balance at Retirement</div>
+                        <div class="ira-value" id="rothBalance">$0</div>
+                        <div class="ira-label">After-Tax Value (Tax-Free!)</div>
+                        <div class="ira-value" id="rothAfterTax" style="font-size: 1.8rem;">$0</div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 15px;">
+                    <div class="winner-badge" id="winner">Calculating...</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📊 Detailed Comparison</h2>
+                <div class="comparison-row">
+                    <span class="label">Annual Contribution</span>
+                    <div class="values">
+                        <span class="trad" id="tradContrib">$0</span>
+                        <span class="roth" id="rothContrib">$0</span>
+                    </div>
+                </div>
+                <div class="comparison-row">
+                    <span class="label">Tax Savings Now (yearly)</span>
+                    <div class="values">
+                        <span class="trad" id="tradTaxNow">$0</span>
+                        <span class="roth" id="rothTaxNow">$0</span>
+                    </div>
+                </div>
+                <div class="comparison-row">
+                    <span class="label">Total Contributions</span>
+                    <div class="values">
+                        <span class="trad" id="tradTotalContrib">$0</span>
+                        <span class="roth" id="rothTotalContrib">$0</span>
+                    </div>
+                </div>
+                <div class="comparison-row">
+                    <span class="label">Total Growth</span>
+                    <div class="values">
+                        <span class="trad" id="tradGrowth">$0</span>
+                        <span class="roth" id="rothGrowth">$0</span>
+                    </div>
+                </div>
+                <div class="comparison-row">
+                    <span class="label">Taxes Owed at Withdrawal</span>
+                    <div class="values">
+                        <span class="trad" id="tradTaxWithdraw">$0</span>
+                        <span class="roth" id="rothTaxWithdraw">$0</span>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <strong>Key Differences:</strong><br>
+                    • <strong>Traditional IRA:</strong> Tax deduction now, pay taxes on withdrawals<br>
+                    • <strong>Roth IRA:</strong> No deduction now, tax-free withdrawals<br>
+                    • <strong>2024 Limit:</strong> $7,000 ($8,000 if 50+)
+                </div>
+            </div>
+
+            </div>
+
+            <div class="card">
+                <h2>🔗 Related Tools</h2>
+                <div class="related-tools">
+                    <a href="401k-calculator.html" class="related-link">💼 401(k) Calculator</a>
+                    <a href="roth-ira-calculator.html" class="related-link">📈 Roth IRA</a>
+                    <a href="retirement-calculator.html" class="related-link">🏖️ Retirement</a>
+                    <a href="compound-interest-calculator.html" class="related-link">💹 Compound Interest</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            const age = parseInt(document.getElementById('age').value) || 30;
+            const retireAge = parseInt(document.getElementById('retireAge').value) || 65;
+            const contribution = parseFloat(document.getElementById('contribution').value) || 0;
+            const returnRate = parseFloat(document.getElementById('return').value) || 7;
+            const currentTax = parseFloat(document.getElementById('currentTax').value) || 24;
+            const retireTax = parseFloat(document.getElementById('retireTax').value) || 22;
+
+            const years = Math.max(0, retireAge - age);
+            const monthlyRate = returnRate / 100 / 12;
+            const months = years * 12;
+            const monthlyContrib = contribution / 12;
+
+            // Calculate future value
+            let balance = 0;
+            if (monthlyRate > 0) {
+                balance = monthlyContrib * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate);
+            } else {
+                balance = contribution * years;
+            }
+
+            const totalContributions = contribution * years;
+            const growth = balance - totalContributions;
+
+            // Traditional IRA: taxed at withdrawal
+            const tradTaxOwed = balance * (retireTax / 100);
+            const tradAfterTax = balance - tradTaxOwed;
+            const tradTaxSavingsNow = contribution * (currentTax / 100);
+
+            // Roth IRA: tax-free at withdrawal
+            const rothAfterTax = balance;
+            const rothTaxSavingsNow = 0;
+
+            // Update displays
+            document.getElementById('tradBalance').textContent = '$' + Math.round(balance).toLocaleString();
+            document.getElementById('tradAfterTax').textContent = '$' + Math.round(tradAfterTax).toLocaleString();
+            document.getElementById('rothBalance').textContent = '$' + Math.round(balance).toLocaleString();
+            document.getElementById('rothAfterTax').textContent = '$' + Math.round(rothAfterTax).toLocaleString();
+
+            document.getElementById('tradContrib').textContent = '$' + contribution.toLocaleString();
+            document.getElementById('rothContrib').textContent = '$' + contribution.toLocaleString();
+            document.getElementById('tradTaxNow').textContent = '$' + Math.round(tradTaxSavingsNow).toLocaleString();
+            document.getElementById('rothTaxNow').textContent = '$0';
+            document.getElementById('tradTotalContrib').textContent = '$' + Math.round(totalContributions).toLocaleString();
+            document.getElementById('rothTotalContrib').textContent = '$' + Math.round(totalContributions).toLocaleString();
+            document.getElementById('tradGrowth').textContent = '$' + Math.round(growth).toLocaleString();
+            document.getElementById('rothGrowth').textContent = '$' + Math.round(growth).toLocaleString();
+            document.getElementById('tradTaxWithdraw').textContent = '$' + Math.round(tradTaxOwed).toLocaleString();
+            document.getElementById('rothTaxWithdraw').textContent = '$0 (Tax-Free!)';
+
+            // Determine winner
+            const winner = document.getElementById('winner');
+            if (rothAfterTax > tradAfterTax) {
+                winner.textContent = '✓ Roth IRA wins by $' + Math.round(rothAfterTax - tradAfterTax).toLocaleString();
+                winner.style.background = 'var(--roth)';
+            } else {
+                winner.textContent = '✓ Traditional IRA wins by $' + Math.round(tradAfterTax - rothAfterTax).toLocaleString();
+                winner.style.background = 'var(--trad)';
+            }
+        }
+        calculate();
+    </script>
+</body>
+</html>

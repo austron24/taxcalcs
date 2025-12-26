@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://quge5.com/88/tag.min.js" data-zone="196361" async data-cfasync="false"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIRE Calculator - Financial Independence Retire Early | TaxCalcs</title>
+    <meta name="description" content="Free FIRE calculator. Calculate your path to financial independence and early retirement. Find your FIRE number and time to FIRE.">
+    <meta name="keywords" content="FIRE calculator, financial independence, retire early, FIRE number, early retirement calculator">
+    <link rel="canonical" href="https://taxcalcs.xyz/fire-calculator.html">
+    <style>
+        :root { --primary: #ea580c; --primary-dark: #c2410c; --secondary: #22d3ee; --accent: #f59e0b; --bg-dark: #0f172a; --bg-card: #1e293b; --bg-input: #334155; --text-primary: #f1f5f9; --text-secondary: #94a3b8; --border: #475569; --success: #10b981; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg-dark); color: var(--text-primary); min-height: 100vh; line-height: 1.6; }
+        .header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 40px 20px; text-align: center; }
+        .header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .main-container { max-width: 1200px; margin: 0 auto; padding: 20px; display: grid; grid-template-columns: 1fr 160px; gap: 20px; }
+        .content-area { display: flex; flex-direction: column; gap: 20px; }
+        .sidebar { display: flex; flex-direction: column; gap: 20px; }
+        .card { background: var(--bg-card); border-radius: 16px; padding: 24px; }
+        .card h2 { color: var(--secondary); margin-bottom: 20px; font-size: 1.3rem; }
+        .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 8px; color: var(--text-secondary); }
+        input, select { width: 100%; padding: 15px; border: 2px solid var(--border); border-radius: 10px; font-size: 1rem; background: var(--bg-input); color: var(--text-primary); }
+        input:focus, select:focus { outline: none; border-color: var(--primary); }
+        .result-hero { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); padding: 35px; border-radius: 16px; text-align: center; margin: 20px 0; }
+        .result-hero-value { font-size: 3rem; font-weight: 800; color: white; }
+        .result-hero-label { color: rgba(255,255,255,0.8); }
+        .fire-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 20px; }
+        .fire-card { background: var(--bg-input); padding: 20px; border-radius: 12px; text-align: center; }
+        .fire-card h3 { color: var(--accent); font-size: 0.9rem; margin-bottom: 10px; }
+        .fire-value { font-size: 1.5rem; font-weight: 700; color: var(--secondary); }
+        .fire-sublabel { color: var(--text-secondary); font-size: 0.8rem; margin-top: 5px; }
+        .progress-container { margin: 30px 0; }
+        .progress-bar { height: 30px; background: var(--border); border-radius: 15px; overflow: hidden; position: relative; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent)); border-radius: 15px; transition: width 0.3s; }
+        .progress-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-weight: bold; color: white; text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
+        .breakdown-row { display: flex; justify-content: space-between; padding: 12px 15px; background: var(--bg-input); border-radius: 8px; margin-bottom: 8px; }
+        .related-tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 15px; }
+        .related-link { display: block; padding: 12px 16px; background: var(--bg-input); border-radius: 8px; color: var(--text-primary); text-decoration: none; }
+        .related-link:hover { background: var(--primary); }
+        @media (max-width: 968px) { .main-container { grid-template-columns: 1fr; } .sidebar { display: none; } }
+        @media (max-width: 640px) { .form-grid, .fire-grid { grid-template-columns: 1fr; } }
+    </style>
+    <script>(function(s){s.dataset.zone='10379224',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+</head>
+<body>
+    </div>
+    </div>
+
+    <header class="header">
+        <h1>🔥 FIRE Calculator</h1>
+    </header>
+
+    <div class="main-container">
+        <div class="content-area">
+            <div class="card">
+                <h2>📋 Your Financial Situation</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Current Age</label>
+                        <input type="number" id="age" value="30" step="1" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Current Savings ($)</label>
+                        <input type="number" id="savings" value="100000" step="10000" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Annual Income ($)</label>
+                        <input type="number" id="income" value="80000" step="5000" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Annual Expenses ($)</label>
+                        <input type="number" id="expenses" value="50000" step="5000" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Expected Return (%)</label>
+                        <input type="number" id="return" value="7" step="0.5" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Safe Withdrawal Rate (%)</label>
+                        <input type="number" id="swr" value="4" step="0.25" oninput="calculate()">
+                    </div>
+                </div>
+
+                <div class="result-hero">
+                    <div class="result-hero-label">Years to FIRE</div>
+                    <div class="result-hero-value" id="yearsToFire">0</div>
+                </div>
+
+                <div class="progress-container">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span>Current: $<span id="currentSavings">0</span></span>
+                        <span>FIRE Number: $<span id="fireNumberTop">0</span></span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                        <span class="progress-text" id="progressText">0%</span>
+                    </div>
+                </div>
+
+                <div class="fire-grid">
+                    <div class="fire-card">
+                        <h3>🔥 FIRE Number</h3>
+                        <div class="fire-value" id="fireNumber">$0</div>
+                        <div class="fire-sublabel">25x Annual Expenses</div>
+                    </div>
+                    <div class="fire-card">
+                        <h3>📅 FIRE Date</h3>
+                        <div class="fire-value" id="fireDate">-</div>
+                        <div class="fire-sublabel">Target retirement date</div>
+                    </div>
+                    <div class="fire-card">
+                        <h3>🎂 FIRE Age</h3>
+                        <div class="fire-value" id="fireAge">-</div>
+                        <div class="fire-sublabel">Age at FIRE</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📊 FIRE Breakdown</h2>
+                <div class="breakdown-row"><span>Monthly Savings</span><span id="monthlySavings">$0</span></div>
+                <div class="breakdown-row"><span>Savings Rate</span><span id="savingsRate">0%</span></div>
+                <div class="breakdown-row"><span>Annual Investment Growth</span><span id="annualGrowth">$0</span></div>
+                <div class="breakdown-row"><span>Safe Annual Withdrawal</span><span id="safeWithdrawal">$0</span></div>
+                <div class="breakdown-row" style="font-weight: bold; background: var(--primary);"><span>Monthly FIRE Income</span><span id="fireIncome">$0</span></div>
+            </div>
+
+            <div class="card">
+                <h2>🎯 FIRE Types</h2>
+                <div class="fire-grid">
+                    <div class="fire-card">
+                        <h3>Lean FIRE</h3>
+                        <div class="fire-value" id="leanFire">$0</div>
+                        <div class="fire-sublabel">$40k/year expenses</div>
+                    </div>
+                    <div class="fire-card">
+                        <h3>Regular FIRE</h3>
+                        <div class="fire-value" id="regularFire">$0</div>
+                        <div class="fire-sublabel">Your expenses</div>
+                    </div>
+                    <div class="fire-card">
+                        <h3>Fat FIRE</h3>
+                        <div class="fire-value" id="fatFire">$0</div>
+                        <div class="fire-sublabel">$100k/year expenses</div>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+
+            <div class="card">
+                <h2>🔗 Related Tools</h2>
+                <div class="related-tools">
+                    <a href="retirement-calculator.html" class="related-link">🏖️ Retirement</a>
+                    <a href="compound-interest-calculator.html" class="related-link">💹 Compound Interest</a>
+                    <a href="investment-calculator.html" class="related-link">📈 Investment</a>
+                    <a href="net-worth-calculator.html" class="related-link">💰 Net Worth</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            const age = parseInt(document.getElementById('age').value) || 30;
+            const savings = parseFloat(document.getElementById('savings').value) || 0;
+            const income = parseFloat(document.getElementById('income').value) || 0;
+            const expenses = parseFloat(document.getElementById('expenses').value) || 0;
+            const returnRate = parseFloat(document.getElementById('return').value) || 7;
+            const swr = parseFloat(document.getElementById('swr').value) || 4;
+
+            const annualSavings = income - expenses;
+            const monthlySavings = annualSavings / 12;
+            const savingsRate = income > 0 ? (annualSavings / income) * 100 : 0;
+            const fireNumber = expenses * (100 / swr);
+
+            // Calculate years to FIRE
+            let yearsToFire = 0;
+            let currentBalance = savings;
+            const monthlyReturn = returnRate / 100 / 12;
+            
+            if (currentBalance < fireNumber && annualSavings > 0) {
+                while (currentBalance < fireNumber && yearsToFire < 100) {
+                    currentBalance = currentBalance * (1 + monthlyReturn) + (monthlySavings);
+                    yearsToFire += 1/12;
+                }
+            } else if (currentBalance >= fireNumber) {
+                yearsToFire = 0;
+            } else {
+                yearsToFire = Infinity;
+            }
+
+            const fireAge = age + Math.ceil(yearsToFire);
+            const fireDate = new Date();
+            fireDate.setFullYear(fireDate.getFullYear() + Math.ceil(yearsToFire));
+
+            const progressPercent = Math.min(100, (savings / fireNumber) * 100);
+            const safeWithdrawal = fireNumber * (swr / 100);
+            const annualGrowth = savings * (returnRate / 100);
+
+            // Update displays
+            document.getElementById('yearsToFire').textContent = yearsToFire === Infinity ? '∞' : Math.ceil(yearsToFire) + ' years';
+            document.getElementById('fireNumber').textContent = '$' + Math.round(fireNumber).toLocaleString();
+            document.getElementById('fireNumberTop').textContent = Math.round(fireNumber).toLocaleString();
+            document.getElementById('currentSavings').textContent = Math.round(savings).toLocaleString();
+            document.getElementById('fireDate').textContent = yearsToFire === Infinity ? 'N/A' : fireDate.getFullYear();
+            document.getElementById('fireAge').textContent = yearsToFire === Infinity ? 'N/A' : fireAge;
+
+            document.getElementById('progressFill').style.width = progressPercent + '%';
+            document.getElementById('progressText').textContent = progressPercent.toFixed(1) + '%';
+
+            document.getElementById('monthlySavings').textContent = '$' + Math.round(monthlySavings).toLocaleString();
+            document.getElementById('savingsRate').textContent = savingsRate.toFixed(1) + '%';
+            document.getElementById('annualGrowth').textContent = '$' + Math.round(annualGrowth).toLocaleString();
+            document.getElementById('safeWithdrawal').textContent = '$' + Math.round(safeWithdrawal).toLocaleString();
+            document.getElementById('fireIncome').textContent = '$' + Math.round(safeWithdrawal / 12).toLocaleString();
+
+            // FIRE types
+            document.getElementById('leanFire').textContent = '$' + Math.round(40000 * (100 / swr)).toLocaleString();
+            document.getElementById('regularFire').textContent = '$' + Math.round(fireNumber).toLocaleString();
+            document.getElementById('fatFire').textContent = '$' + Math.round(100000 * (100 / swr)).toLocaleString();
+        }
+        calculate();
+    </script>
+</body>
+</html>

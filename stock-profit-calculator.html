@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://quge5.com/88/tag.min.js" data-zone="196361" async data-cfasync="false"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Profit Calculator - Calculate Trading Gains | TaxCalcs</title>
+    <meta name="description" content="Free stock profit calculator. Calculate your profit or loss from stock trades including fees and commissions.">
+    <meta name="keywords" content="stock profit calculator, stock gain calculator, trading calculator, investment profit, stock return">
+    <link rel="canonical" href="https://taxcalcs.xyz/stock-profit-calculator.html">
+    <style>
+        :root { --primary: #14b8a6; --primary-dark: #0d9488; --secondary: #22d3ee; --accent: #f59e0b; --bg-dark: #0f172a; --bg-card: #1e293b; --bg-input: #334155; --text-primary: #f1f5f9; --text-secondary: #94a3b8; --border: #475569; --success: #10b981; --loss: #ef4444; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg-dark); color: var(--text-primary); min-height: 100vh; line-height: 1.6; }
+        .header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 40px 20px; text-align: center; }
+        .header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .main-container { max-width: 1200px; margin: 0 auto; padding: 20px; display: grid; grid-template-columns: 1fr 160px; gap: 20px; }
+        .content-area { display: flex; flex-direction: column; gap: 20px; }
+        .sidebar { display: flex; flex-direction: column; gap: 20px; }
+        .card { background: var(--bg-card); border-radius: 16px; padding: 24px; }
+        .card h2 { color: var(--secondary); margin-bottom: 20px; font-size: 1.3rem; }
+        .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; color: var(--text-secondary); }
+        input, select { width: 100%; padding: 15px; border: 2px solid var(--border); border-radius: 10px; font-size: 1rem; background: var(--bg-input); color: var(--text-primary); }
+        input:focus, select:focus { outline: none; border-color: var(--primary); }
+        .result-hero { padding: 35px; border-radius: 16px; text-align: center; margin: 20px 0; }
+        .result-hero.profit { background: linear-gradient(135deg, var(--success), #059669); }
+        .result-hero.loss { background: linear-gradient(135deg, var(--loss), #dc2626); }
+        .result-hero-value { font-size: 3rem; font-weight: 800; color: white; }
+        .result-hero-label { color: rgba(255,255,255,0.8); }
+        .results-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 20px; }
+        .result-card { background: var(--bg-input); padding: 20px; border-radius: 12px; text-align: center; }
+        .result-value { font-size: 1.3rem; font-weight: 700; color: var(--secondary); }
+        .result-value.profit { color: var(--success); }
+        .result-value.loss { color: var(--loss); }
+        .result-label { color: var(--text-secondary); margin-top: 5px; font-size: 0.85rem; }
+        .breakdown-row { display: flex; justify-content: space-between; padding: 12px 15px; background: var(--bg-input); border-radius: 8px; margin-bottom: 8px; }
+        .related-tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 15px; }
+        .related-link { display: block; padding: 12px 16px; background: var(--bg-input); border-radius: 8px; color: var(--text-primary); text-decoration: none; }
+        .related-link:hover { background: var(--primary); }
+        @media (max-width: 968px) { .main-container { grid-template-columns: 1fr; } .sidebar { display: none; } }
+        @media (max-width: 640px) { .form-grid, .results-grid { grid-template-columns: 1fr 1fr; } }
+    </style>
+    <script>(function(s){s.dataset.zone='10379224',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+</head>
+<body>
+    </div>
+    </div>
+    
+    <header class="header">
+        <h1>📊 Stock Profit Calculator</h1>
+    </header>
+
+    <div class="main-container">
+        <div class="content-area">
+            <div class="card">
+                <h2>💹 Trade Details</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Number of Shares</label>
+                        <input type="number" id="shares" value="100" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Purchase Price per Share ($)</label>
+                        <input type="number" id="buyPrice" value="50" step="0.01" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Selling Price per Share ($)</label>
+                        <input type="number" id="sellPrice" value="65" step="0.01" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Buy Commission ($)</label>
+                        <input type="number" id="buyCommission" value="0" step="0.01" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Sell Commission ($)</label>
+                        <input type="number" id="sellCommission" value="0" step="0.01" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Other Fees ($)</label>
+                        <input type="number" id="fees" value="0" step="0.01" oninput="calculate()">
+                    </div>
+                </div>
+                
+                <div class="result-hero profit" id="resultHero">
+                    <div class="result-hero-label" id="resultLabel">Net Profit</div>
+                    <div class="result-hero-value" id="netProfit">$0</div>
+                </div>
+                
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-value" id="returnPercent">0%</div>
+                        <div class="result-label">Return %</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value" id="totalCost">$0</div>
+                        <div class="result-label">Total Cost</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value" id="totalRevenue">$0</div>
+                        <div class="result-label">Total Revenue</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value" id="breakeven">$0</div>
+                        <div class="result-label">Break-Even Price</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📋 Trade Summary</h2>
+                <div class="breakdown-row">
+                    <span>Shares Purchased</span>
+                    <span id="sharesDisplay">0</span>
+                </div>
+                <div class="breakdown-row">
+                    <span>Purchase Price</span>
+                    <span id="purchaseCost">$0</span>
+                </div>
+                <div class="breakdown-row">
+                    <span>Buy Commission</span>
+                    <span id="buyCommDisplay">$0</span>
+                </div>
+                <div class="breakdown-row">
+                    <span>Total Investment</span>
+                    <span id="totalInvestment">$0</span>
+                </div>
+                <div class="breakdown-row">
+                    <span>Sale Proceeds</span>
+                    <span id="saleProceeds">$0</span>
+                </div>
+                <div class="breakdown-row">
+                    <span>Sell Commission</span>
+                    <span id="sellCommDisplay">$0</span>
+                </div>
+                <div class="breakdown-row">
+                    <span>Other Fees</span>
+                    <span id="feesDisplay">$0</span>
+                </div>
+                <div class="breakdown-row" id="profitRow" style="background: var(--success); color: white; font-weight: 700;">
+                    <span>Net Profit/Loss</span>
+                    <span id="netProfitBreakdown">$0</span>
+                </div>
+            </div>
+
+            </div>
+
+            <div class="card">
+                <h2>🔗 Related Tools</h2>
+                <div class="related-tools">
+                    <a href="capital-gains-calculator.html" class="related-link">💰 Capital Gains Tax</a>
+                    <a href="dividend-calculator.html" class="related-link">📈 Dividend Calculator</a>
+                    <a href="investment-calculator.html" class="related-link">💵 Investment Calculator</a>
+                    <a href="compound-interest-calculator.html" class="related-link">📊 Compound Interest</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            const shares = parseFloat(document.getElementById('shares').value) || 0;
+            const buyPrice = parseFloat(document.getElementById('buyPrice').value) || 0;
+            const sellPrice = parseFloat(document.getElementById('sellPrice').value) || 0;
+            const buyCommission = parseFloat(document.getElementById('buyCommission').value) || 0;
+            const sellCommission = parseFloat(document.getElementById('sellCommission').value) || 0;
+            const fees = parseFloat(document.getElementById('fees').value) || 0;
+            
+            const purchaseCost = shares * buyPrice;
+            const totalCost = purchaseCost + buyCommission;
+            const saleProceeds = shares * sellPrice;
+            const totalRevenue = saleProceeds - sellCommission - fees;
+            const netProfit = totalRevenue - totalCost;
+            const returnPercent = totalCost > 0 ? (netProfit / totalCost) * 100 : 0;
+            const breakeven = shares > 0 ? (totalCost + sellCommission + fees) / shares : 0;
+            
+            const isProfit = netProfit >= 0;
+            const heroEl = document.getElementById('resultHero');
+            const profitRow = document.getElementById('profitRow');
+            
+            heroEl.className = 'result-hero ' + (isProfit ? 'profit' : 'loss');
+            document.getElementById('resultLabel').textContent = isProfit ? 'Net Profit' : 'Net Loss';
+            profitRow.style.background = isProfit ? 'var(--success)' : 'var(--loss)';
+            
+            document.getElementById('netProfit').textContent = (isProfit ? '+' : '') + '$' + Math.abs(netProfit).toFixed(2);
+            document.getElementById('returnPercent').textContent = (returnPercent >= 0 ? '+' : '') + returnPercent.toFixed(2) + '%';
+            document.getElementById('returnPercent').className = 'result-value ' + (isProfit ? 'profit' : 'loss');
+            document.getElementById('totalCost').textContent = '$' + totalCost.toFixed(2);
+            document.getElementById('totalRevenue').textContent = '$' + totalRevenue.toFixed(2);
+            document.getElementById('breakeven').textContent = '$' + breakeven.toFixed(2);
+            
+            document.getElementById('sharesDisplay').textContent = shares;
+            document.getElementById('purchaseCost').textContent = '$' + purchaseCost.toFixed(2);
+            document.getElementById('buyCommDisplay').textContent = '$' + buyCommission.toFixed(2);
+            document.getElementById('totalInvestment').textContent = '$' + totalCost.toFixed(2);
+            document.getElementById('saleProceeds').textContent = '$' + saleProceeds.toFixed(2);
+            document.getElementById('sellCommDisplay').textContent = '$' + sellCommission.toFixed(2);
+            document.getElementById('feesDisplay').textContent = '$' + fees.toFixed(2);
+            document.getElementById('netProfitBreakdown').textContent = (isProfit ? '+' : '') + '$' + netProfit.toFixed(2);
+        }
+        
+        calculate();
+    </script>
+</body>
+</html>

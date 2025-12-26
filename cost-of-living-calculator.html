@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://quge5.com/88/tag.min.js" data-zone="196361" async data-cfasync="false"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cost of Living Calculator - Compare Cities & Salary Needs | TaxCalcs</title>
+    <meta name="description" content="Free cost of living calculator. Compare living costs between cities. Calculate salary needed to maintain your lifestyle when relocating.">
+    <meta name="keywords" content="cost of living calculator, salary comparison, city comparison, relocation calculator, living expenses">
+    <link rel="canonical" href="https://taxcalcs.xyz/cost-of-living-calculator.html">
+    <style>
+        :root { --primary: #06b6d4; --primary-dark: #0891b2; --secondary: #22d3ee; --accent: #f59e0b; --bg-dark: #0f172a; --bg-card: #1e293b; --bg-input: #334155; --text-primary: #f1f5f9; --text-secondary: #94a3b8; --border: #475569; --success: #10b981; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg-dark); color: var(--text-primary); min-height: 100vh; line-height: 1.6; }
+        .header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 40px 20px; text-align: center; }
+        .header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .main-container { max-width: 1200px; margin: 0 auto; padding: 20px; display: grid; grid-template-columns: 1fr 160px; gap: 20px; }
+        .content-area { display: flex; flex-direction: column; gap: 20px; }
+        .sidebar { display: flex; flex-direction: column; gap: 20px; }
+        .card { background: var(--bg-card); border-radius: 16px; padding: 24px; }
+        .card h2 { color: var(--secondary); margin-bottom: 20px; font-size: 1.3rem; }
+        .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 8px; color: var(--text-secondary); }
+        input, select { width: 100%; padding: 15px; border: 2px solid var(--border); border-radius: 10px; font-size: 1rem; background: var(--bg-input); color: var(--text-primary); }
+        input:focus, select:focus { outline: none; border-color: var(--primary); }
+        .result-hero { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); padding: 35px; border-radius: 16px; text-align: center; margin: 20px 0; }
+        .result-hero-value { font-size: 3rem; font-weight: 800; color: white; }
+        .result-hero-label { color: rgba(255,255,255,0.9); }
+        .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 20px; }
+        .result-card { background: var(--bg-input); padding: 20px; border-radius: 12px; text-align: center; }
+        .result-value { font-size: 1.3rem; font-weight: 700; color: var(--secondary); }
+        .result-label { color: var(--text-secondary); margin-top: 5px; font-size: 0.85rem; }
+        .comparison-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; padding: 12px 15px; background: var(--bg-input); border-radius: 8px; margin-bottom: 8px; }
+        .comparison-row span:first-child { color: var(--text-secondary); }
+        .comparison-row.header { background: var(--primary); font-weight: bold; }
+        .higher { color: #ef4444; }
+        .lower { color: #10b981; }
+        .related-tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 15px; }
+        .related-link { display: block; padding: 12px 16px; background: var(--bg-input); border-radius: 8px; color: var(--text-primary); text-decoration: none; }
+        .related-link:hover { background: var(--primary); }
+        @media (max-width: 968px) { .main-container { grid-template-columns: 1fr; } .sidebar { display: none; } }
+        @media (max-width: 640px) { .form-grid, .results-grid, .comparison-row { grid-template-columns: 1fr; } }
+    </style>
+    <script>(function(s){s.dataset.zone='10379224',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+</head>
+<body>
+    </div>
+    </div>
+
+    <header class="header">
+        <h1>🏙️ Cost of Living Calculator</h1>
+    </header>
+
+    <div class="main-container">
+        <div class="content-area">
+            <div class="card">
+                <h2>📍 Compare Locations</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Current City Index (100 = US avg)</label>
+                        <input type="number" id="currentIndex" value="100" step="5" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>New City Index</label>
+                        <input type="number" id="newIndex" value="120" step="5" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Current Annual Salary ($)</label>
+                        <input type="number" id="currentSalary" value="75000" step="1000" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Offered Salary ($)</label>
+                        <input type="number" id="offeredSalary" value="85000" step="1000" oninput="calculate()">
+                    </div>
+                </div>
+
+                <div class="result-hero">
+                    <div class="result-hero-label">Salary Needed to Maintain Lifestyle</div>
+                    <div class="result-hero-value" id="neededSalary">$0</div>
+                </div>
+
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-value" id="colDiff">+0%</div>
+                        <div class="result-label">Cost of Living Difference</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value" id="realGain">$0</div>
+                        <div class="result-label">Real Purchasing Power Change</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value" id="monthlyDiff">$0</div>
+                        <div class="result-label">Monthly Impact</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📊 Expense Comparison</h2>
+                <div class="comparison-row header">
+                    <span>Category</span>
+                    <span>Current City</span>
+                    <span>New City</span>
+                </div>
+                <div class="comparison-row">
+                    <span>🏠 Housing (rent/mortgage)</span>
+                    <span id="housingCurrent">$1,500</span>
+                    <span id="housingNew">$1,800</span>
+                </div>
+                <div class="comparison-row">
+                    <span>🛒 Groceries</span>
+                    <span id="groceriesCurrent">$500</span>
+                    <span id="groceriesNew">$600</span>
+                </div>
+                <div class="comparison-row">
+                    <span>🚗 Transportation</span>
+                    <span id="transportCurrent">$400</span>
+                    <span id="transportNew">$480</span>
+                </div>
+                <div class="comparison-row">
+                    <span>💡 Utilities</span>
+                    <span id="utilitiesCurrent">$200</span>
+                    <span id="utilitiesNew">$240</span>
+                </div>
+                <div class="comparison-row">
+                    <span>🏥 Healthcare</span>
+                    <span id="healthCurrent">$300</span>
+                    <span id="healthNew">$360</span>
+                </div>
+                <div class="comparison-row" style="background: var(--success);">
+                    <span>Total Monthly</span>
+                    <span id="totalCurrent">$2,900</span>
+                    <span id="totalNew">$3,480</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🔢 Common City Indexes (for reference)</h2>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+                    <div style="background: var(--bg-input); padding: 10px; border-radius: 8px;">US Average: 100</div>
+                    <div style="background: var(--bg-input); padding: 10px; border-radius: 8px;">New York: 187</div>
+                    <div style="background: var(--bg-input); padding: 10px; border-radius: 8px;">San Francisco: 179</div>
+                    <div style="background: var(--bg-input); padding: 10px; border-radius: 8px;">Los Angeles: 166</div>
+                    <div style="background: var(--bg-input); padding: 10px; border-radius: 8px;">Boston: 152</div>
+                    <div style="background: var(--bg-input); padding: 10px; border-radius: 8px;">Seattle: 149</div>
+                    <div style="background: var(--bg-input); padding: 10px; border-radius: 8px;">Denver: 128</div>
+                    <div style="background: var(--bg-input); padding: 10px; border-radius: 8px;">Austin: 110</div>
+                    <div style="background: var(--bg-input); padding: 10px; border-radius: 8px;">Phoenix: 103</div>
+                    <div style="background: var(--bg-input); padding: 10px; border-radius: 8px;">Dallas: 98</div>
+                    <div style="background: var(--bg-input); padding: 10px; border-radius: 8px;">Atlanta: 95</div>
+                    <div style="background: var(--bg-input); padding: 10px; border-radius: 8px;">Houston: 91</div>
+                </div>
+            </div>
+
+            </div>
+
+            <div class="card">
+                <h2>🔗 Related Tools</h2>
+                <div class="related-tools">
+                    <a href="take-home-pay-calculator.html" class="related-link">💰 Take Home Pay</a>
+                    <a href="budget-calculator.html" class="related-link">📊 Budget</a>
+                    <a href="rent-vs-buy-calculator.html" class="related-link">🏠 Rent vs Buy</a>
+                    <a href="hourly-to-salary-calculator.html" class="related-link">💵 Hourly to Salary</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            const currentIndex = parseFloat(document.getElementById('currentIndex').value) || 100;
+            const newIndex = parseFloat(document.getElementById('newIndex').value) || 100;
+            const currentSalary = parseFloat(document.getElementById('currentSalary').value) || 0;
+            const offeredSalary = parseFloat(document.getElementById('offeredSalary').value) || 0;
+            
+            const colRatio = newIndex / currentIndex;
+            const colDiff = ((colRatio - 1) * 100);
+            const neededSalary = currentSalary * colRatio;
+            
+            const equivalentSalary = offeredSalary / colRatio;
+            const realGain = equivalentSalary - currentSalary;
+            const monthlyDiff = realGain / 12;
+            
+            document.getElementById('neededSalary').textContent = '$' + neededSalary.toLocaleString(undefined, {maximumFractionDigits: 0});
+            document.getElementById('colDiff').textContent = (colDiff >= 0 ? '+' : '') + colDiff.toFixed(1) + '%';
+            document.getElementById('realGain').textContent = (realGain >= 0 ? '+$' : '-$') + Math.abs(realGain).toLocaleString(undefined, {maximumFractionDigits: 0});
+            document.getElementById('monthlyDiff').textContent = (monthlyDiff >= 0 ? '+$' : '-$') + Math.abs(monthlyDiff).toLocaleString(undefined, {maximumFractionDigits: 0});
+            
+            // Update expense comparison
+            const baseExpenses = {
+                housing: 1500,
+                groceries: 500,
+                transport: 400,
+                utilities: 200,
+                health: 300
+            };
+            
+            let totalCurrent = 0;
+            let totalNew = 0;
+            
+            for (const [key, base] of Object.entries(baseExpenses)) {
+                const current = base * (currentIndex / 100);
+                const newVal = base * (newIndex / 100);
+                totalCurrent += current;
+                totalNew += newVal;
+                
+                document.getElementById(key + 'Current').textContent = '$' + current.toFixed(0);
+                const newSpan = document.getElementById(key + 'New');
+                newSpan.textContent = '$' + newVal.toFixed(0);
+                newSpan.className = newVal > current ? 'higher' : 'lower';
+            }
+            
+            document.getElementById('totalCurrent').textContent = '$' + totalCurrent.toFixed(0);
+            document.getElementById('totalNew').textContent = '$' + totalNew.toFixed(0);
+        }
+        calculate();
+    </script>
+</body>
+</html>

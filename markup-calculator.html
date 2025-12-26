@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://quge5.com/88/tag.min.js" data-zone="196361" async data-cfasync="false"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markup Calculator - Calculate Price Markup | TaxCalcs</title>
+    <meta name="description" content="Free markup calculator. Calculate markup percentage, selling price, and profit. Understand the difference between markup and margin.">
+    <meta name="keywords" content="markup calculator, price markup, markup vs margin, cost markup, profit markup">
+    <link rel="canonical" href="https://taxcalcs.xyz/markup-calculator.html">
+    <style>
+        :root { --primary: #f59e0b; --primary-dark: #d97706; --secondary: #22d3ee; --accent: #10b981; --bg-dark: #0f172a; --bg-card: #1e293b; --bg-input: #334155; --text-primary: #f1f5f9; --text-secondary: #94a3b8; --border: #475569; --success: #10b981; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg-dark); color: var(--text-primary); min-height: 100vh; line-height: 1.6; }
+        .header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 40px 20px; text-align: center; }
+        .header h1 { font-size: 2.5rem; margin-bottom: 10px; color: var(--bg-dark); }
+        .main-container { max-width: 1200px; margin: 0 auto; padding: 20px; display: grid; grid-template-columns: 1fr 160px; gap: 20px; }
+        .content-area { display: flex; flex-direction: column; gap: 20px; }
+        .sidebar { display: flex; flex-direction: column; gap: 20px; }
+        .card { background: var(--bg-card); border-radius: 16px; padding: 24px; }
+        .card h2 { color: var(--secondary); margin-bottom: 20px; font-size: 1.3rem; }
+        .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 8px; color: var(--text-secondary); }
+        input { width: 100%; padding: 15px; border: 2px solid var(--border); border-radius: 10px; font-size: 1rem; background: var(--bg-input); color: var(--text-primary); }
+        input:focus { outline: none; border-color: var(--primary); }
+        .result-hero { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); padding: 35px; border-radius: 16px; text-align: center; margin: 20px 0; }
+        .result-hero-value { font-size: 3rem; font-weight: 800; color: var(--bg-dark); }
+        .result-hero-label { color: rgba(0,0,0,0.7); }
+        .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 20px; }
+        .result-card { background: var(--bg-input); padding: 20px; border-radius: 12px; text-align: center; }
+        .result-value { font-size: 1.3rem; font-weight: 700; color: var(--secondary); }
+        .result-label { color: var(--text-secondary); margin-top: 5px; font-size: 0.85rem; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .comparison-table th, .comparison-table td { padding: 12px; text-align: center; border-bottom: 1px solid var(--border); }
+        .comparison-table th { background: var(--bg-input); color: var(--secondary); }
+        .info-box { background: var(--bg-input); padding: 15px; border-radius: 8px; margin-top: 15px; border-left: 4px solid var(--primary); }
+        .related-tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 15px; }
+        .related-link { display: block; padding: 12px 16px; background: var(--bg-input); border-radius: 8px; color: var(--text-primary); text-decoration: none; }
+        .related-link:hover { background: var(--primary); color: var(--bg-dark); }
+        @media (max-width: 968px) { .main-container { grid-template-columns: 1fr; } .sidebar { display: none; } }
+        @media (max-width: 640px) { .form-grid, .results-grid { grid-template-columns: 1fr; } }
+    </style>
+    <script>(function(s){s.dataset.zone='10379224',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+</head>
+<body>
+    </div>
+    </div>
+
+    <header class="header">
+        <h1>🏷️ Markup Calculator</h1>
+    </header>
+
+    <div class="main-container">
+        <div class="content-area">
+            <div class="card">
+                <h2>📋 Enter Values</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Cost Price ($)</label>
+                        <input type="number" id="cost" value="100" step="0.01" oninput="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label>Selling Price ($)</label>
+                        <input type="number" id="selling" value="150" step="0.01" oninput="calculate()">
+                    </div>
+                </div>
+
+                <div class="result-hero">
+                    <div class="result-hero-label">Markup Percentage</div>
+                    <div class="result-hero-value" id="markup">0%</div>
+                </div>
+
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-value" id="profit">$0</div>
+                        <div class="result-label">Profit</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value" id="margin">0%</div>
+                        <div class="result-label">Profit Margin</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value" id="multiplier">1.00x</div>
+                        <div class="result-label">Price Multiplier</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📊 Markup vs Margin Conversion</h2>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Markup %</th>
+                            <th>Margin %</th>
+                            <th>Multiplier</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>20%</td><td>16.7%</td><td>1.20x</td></tr>
+                        <tr><td>33%</td><td>25%</td><td>1.33x</td></tr>
+                        <tr><td>50%</td><td>33.3%</td><td>1.50x</td></tr>
+                        <tr><td>75%</td><td>42.9%</td><td>1.75x</td></tr>
+                        <tr><td>100%</td><td>50%</td><td>2.00x</td></tr>
+                        <tr><td>150%</td><td>60%</td><td>2.50x</td></tr>
+                        <tr><td>200%</td><td>66.7%</td><td>3.00x</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box">
+                    <strong>Markup vs Margin:</strong><br>
+                    • <strong>Markup</strong> = (Profit / Cost) × 100<br>
+                    • <strong>Margin</strong> = (Profit / Selling Price) × 100<br>
+                    • 50% markup = 33.3% margin (not the same!)
+                </div>
+            </div>
+
+            </div>
+
+            <div class="card">
+                <h2>🔗 Related Tools</h2>
+                <div class="related-tools">
+                    <a href="profit-margin-calculator.html" class="related-link">📊 Profit Margin</a>
+                    <a href="selling-price-calculator.html" class="related-link">💰 Selling Price</a>
+                    <a href="discount-calculator.html" class="related-link">🏷️ Discount</a>
+                    <a href="break-even-calculator.html" class="related-link">📈 Break Even</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            const cost = parseFloat(document.getElementById('cost').value) || 0;
+            const selling = parseFloat(document.getElementById('selling').value) || 0;
+
+            const profit = selling - cost;
+            const markup = cost > 0 ? (profit / cost) * 100 : 0;
+            const margin = selling > 0 ? (profit / selling) * 100 : 0;
+            const multiplier = cost > 0 ? selling / cost : 0;
+
+            document.getElementById('markup').textContent = markup.toFixed(1) + '%';
+            document.getElementById('profit').textContent = '$' + profit.toFixed(2);
+            document.getElementById('margin').textContent = margin.toFixed(1) + '%';
+            document.getElementById('multiplier').textContent = multiplier.toFixed(2) + 'x';
+        }
+        calculate();
+    </script>
+</body>
+</html>
